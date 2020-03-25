@@ -1,20 +1,15 @@
 package arquivo;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 public class GravarArquivo {
 
-	private BufferedReader saida;
-	private BufferedWriter saida2;
+	private BufferedWriter saida;
 
 	public void abrirArquivo(String nomeArquivo) {
 
 		try {
-			saida2 = new BufferedWriter(new FileWriter(nomeArquivo));
+			saida = new BufferedWriter(new FileWriter(nomeArquivo));
 		} catch (FileNotFoundException excecao) {
 			System.out.println("Arquivo nÃ£o encontrado");
 		} catch (IOException excecao) {

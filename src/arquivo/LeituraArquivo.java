@@ -1,16 +1,13 @@
 package arquivo;
 
-import java.io.BufferedReader;
-import java.io.EOFException;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class LeituraArquivo {
 
 	private BufferedReader entrada;
 
 	public void abrirArquivo(String nomeArquivo) {
+
 		try {
 			entrada = new BufferedReader(new FileReader(nomeArquivo));
 		} catch (FileNotFoundException excecao) {
@@ -33,7 +30,7 @@ public class LeituraArquivo {
 
 		try {
 			textoEntrada = entrada.readLine();
-		} catch (EOFException excecao) {
+		} catch (EOFException excecao) { // ExceÃ§Ã£o de final de arquivo.
 			return null;
 		} catch (IOException excecao) {
 			System.out.println("Erro de leitura: " + excecao);
