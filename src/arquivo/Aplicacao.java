@@ -8,7 +8,7 @@ public class Aplicacao {
 		LeituraArquivo leitura = new LeituraArquivo();
 		GravarArquivo escrita = new GravarArquivo();
 		Binario binario = new Binario();
-		
+
 		System.out.println(binario.Assembly_Para_Binario("add"));
 	}
 }
