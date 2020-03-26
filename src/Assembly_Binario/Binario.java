@@ -36,16 +36,16 @@ public class Binario {
 				setTipoInstrucao('I');
 				return "000101";
 			case "blez" :
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "000110";
 			case "srlv" :
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "000110";
 			case "bgtz" :
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "000111";
 			case "srav" :
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "000111";
 			case "addi" :
 				setTipoInstrucao('I');
@@ -57,79 +57,79 @@ public class Binario {
 				setTipoInstrucao('I');
 				return "001001";
 			case "jalr" :
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "001001";
 			case "slti" :
 				setTipoInstrucao('I');
 				return "001010";
 			case "movz" :
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "001010";
 			case "sltiu":
 				setTipoInstrucao('I');
 				return "001011";
 			case "movn" :
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "001011";
 			case "andi":
 				setTipoInstrucao('I');
-				return "001100"
+				return "001100";
 			case "syscall" :
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "001100";
 			case "ori":
 				setTipoInstrucao('I');
 				return "001101";
 			case "break" :
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "001101";
 			case "xori" :
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "001110";
 			case "lui" :
 				setTipoInstrucao('I');
 				return "001111";
 			case "sync" :
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "001111";
 			case "mfhi" :
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "010000";
 			case "mthi" :
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "010001";
 			case "mflo" :
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "010010";
 			case "mtlo" :
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "010011";
 			case "mult" :
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "011000";
 			case "multu" :
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "011001";
 			case "div" :
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "011010";
 			case "divu" :
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "011011";
 			case "add" :
 				setTipoInstrucao('R');
 				return "100000";
 			case "lb" :
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "100000";
 			case "addu":
 				setTipoInstrucao('R');
 				return "100001";
 			case "lh":
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "100001";
 			case "lwl":
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "100010";
 			case "sub":
 				setTipoInstrucao('R');
@@ -153,10 +153,10 @@ public class Binario {
 				setTipoInstrucao('R');
 				return "100101";
 			case "lwr":
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "100110";
 			case "xor":
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "100110";
 			case "nor":
 				setTipoInstrucao('R');
@@ -171,7 +171,7 @@ public class Binario {
 				setTipoInstrucao('R');
 				return "101010";
 			case "swl":
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "101010";
 			case "sw":
 				setTipoInstrucao('I');
@@ -180,61 +180,61 @@ public class Binario {
 				setTipoInstrucao('R');
 				return "101011";
 			case "swr":
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "101110";
 			case "cache":
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "101110";
 			case "ll":
 				setTipoInstrucao('I');
 				return "110000";
 			case "tge":
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "110000";
 			case "lwc1":
-				setTipoInstrucao('');
-				return "110001"
+				setTipoInstrucao(' ');
+				return "110001";
 			case "tgeu":
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "110001";
 			case "lwc2":
-				setTipoInstrucao('');
-				return "110010"
+				setTipoInstrucao(' ');
+				return "110010";
 			case "tlt":
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "110010";
 			case "pref":
-				setTipoInstrucao('');
-				return "110011"
+				setTipoInstrucao(' ');
+				return "110011";
 			case "tltu":
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "110011";
 			case "teq":
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "110100";
 			case "ldc1":
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "110101";
 			case "ldc2":
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "110110";
 			case "tne":
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "110110";
 			case "sc":
 				setTipoInstrucao('I');
 				return "111000";
 			case "swc1":
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "111001";
 			case "swc2":
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "111010";
 			case "sdc1":
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "111101";
 			case "sdc2":
-				setTipoInstrucao('');
+				setTipoInstrucao(' ');
 				return "111110";
 			default:
 				return "Parametro nao existe";
@@ -307,6 +307,8 @@ public class Binario {
 				return "011110";
 			case "$ra":
 				return "011111";
+			default:
+				return "Parametro nao existe";
 		}
 	}
 
