@@ -6,135 +6,315 @@ public class Binario {
 	public Binario(){
 		
 	}
+
+	private char tipoInstrucao;
 	
 	public String Assembly_Para_Binario(String opcao) {		
 		switch(opcao) {
 			case "sll" :
-				return "000 0000";	
+				setTipoInstrucao('R');
+				return "000000";
 			case "srl" :
+				setTipoInstrucao('R');
+				return "000010";
 			case "j" :
-				return "000 0010";
+				setTipoInstrucao('J');
+				return "000010";
 			case "jal" :
+				setTipoInstrucao('J');
+				return "000011";
 			case "sra" :
-				return "000 0011";
+				setTipoInstrucao('R');
+				return "000011";
 			case "beq" :
+				setTipoInstrucao('I');
+				return "000100";
 			case "sllv" :
-				return "000 0100";
+				setTipoInstrucao('R');
+				return "000100";
 			case "bne" :
-				return "000 0101";
+				setTipoInstrucao('I');
+				return "000101";
 			case "blez" :
+				setTipoInstrucao('');
+				return "000110";
 			case "srlv" :
-				return "000 0100";	
+				setTipoInstrucao('');
+				return "000110";
 			case "bgtz" :
+				setTipoInstrucao('');
+				return "000111";
 			case "srav" :
-				return "000 0111";	
+				setTipoInstrucao('');
+				return "000111";
 			case "addi" :
+				setTipoInstrucao('I');
+				return "001000";
 			case "jr" :
-				return "00 1000";
+				setTipoInstrucao('R');
+				return "001000";
 			case "addiu" :
+				setTipoInstrucao('I');
+				return "001001";
 			case "jalr" :
-				return "000 1001";
+				setTipoInstrucao('');
+				return "001001";
 			case "slti" :
+				setTipoInstrucao('I');
+				return "001010";
 			case "movz" :
-				return "000 1010";
+				setTipoInstrucao('');
+				return "001010";
 			case "sltiu":
+				setTipoInstrucao('I');
+				return "001011";
 			case "movn" :
-				return "000 1011";
+				setTipoInstrucao('');
+				return "001011";
 			case "andi":
+				setTipoInstrucao('I');
+				return "001100"
 			case "syscall" :
-				return "000 1100";
+				setTipoInstrucao('');
+				return "001100";
 			case "ori":
+				setTipoInstrucao('I');
+				return "001101";
 			case "break" :
-				return "000 1101";
+				setTipoInstrucao('');
+				return "001101";
 			case "xori" :
-				return "000 1110";
+				setTipoInstrucao('');
+				return "001110";
 			case "lui" :
+				setTipoInstrucao('I');
+				return "001111";
 			case "sync" :
-				return "000 1111";
+				setTipoInstrucao('');
+				return "001111";
 			case "mfhi" :
-				return "001 0000";
+				setTipoInstrucao('');
+				return "010000";
 			case "mthi" :
-				return "001 0001";
+				setTipoInstrucao('');
+				return "010001";
 			case "mflo" :
-				return "001 0010";
+				setTipoInstrucao('');
+				return "010010";
 			case "mtlo" :
-				return "001 0011";
+				setTipoInstrucao('');
+				return "010011";
 			case "mult" :
-				return "001 1000";
+				setTipoInstrucao('');
+				return "011000";
 			case "multu" :
-				return "001 1001";
+				setTipoInstrucao('');
+				return "011001";
 			case "div" :
-				return "001 1010";
+				setTipoInstrucao('');
+				return "011010";
 			case "divu" :
-				return "001 1011";
+				setTipoInstrucao('');
+				return "011011";
 			case "add" :
+				setTipoInstrucao('R');
+				return "100000";
 			case "lb" :
-				return "010 0000";
+				setTipoInstrucao('');
+				return "100000";
 			case "addu":
+				setTipoInstrucao('R');
+				return "100001";
 			case "lh":
-				return "010 0001";
+				setTipoInstrucao('');
+				return "100001";
 			case "lwl":
+				setTipoInstrucao('');
+				return "100010";
 			case "sub":
-				return "010 0010";
+				setTipoInstrucao('R');
+				return "100010";
 			case "lw":
+				setTipoInstrucao('I');
+				return "100011";
 			case "subu":
-				return "010 0011";	
+				setTipoInstrucao('R');
+				return "100011";
 			case "lbu":
+				setTipoInstrucao('I');
+				return "100100";
 			case "and":
-				return "010 0100";
+				setTipoInstrucao('R');
+				return "100100";
 			case "lhu":
+				setTipoInstrucao('I');
+				return "100101";
 			case "or":
-				return "010 0101";
+				setTipoInstrucao('R');
+				return "100101";
 			case "lwr":
+				setTipoInstrucao('');
+				return "100110";
 			case "xor":
-				return "010 0110";
+				setTipoInstrucao('');
+				return "100110";
 			case "nor":
-				return "010 0111";
+				setTipoInstrucao('R');
+				return "100111";
 			case "sb":
-				return "010 1000";
+				setTipoInstrucao('I');
+				return "101000";
 			case "sh":
-				return "010 1001";
+				setTipoInstrucao('I');
+				return "101001";
 			case "slt":
+				setTipoInstrucao('R');
+				return "101010";
 			case "swl":
-				return "010 1010";
+				setTipoInstrucao('');
+				return "101010";
 			case "sw":
+				setTipoInstrucao('I');
+				return "101011";
 			case "sltu":
-				return "010 1011";
+				setTipoInstrucao('R');
+				return "101011";
 			case "swr":
-				return "010 1110";
+				setTipoInstrucao('');
+				return "101110";
 			case "cache":
-				return "010 1110";
+				setTipoInstrucao('');
+				return "101110";
 			case "ll":
+				setTipoInstrucao('I');
+				return "110000";
 			case "tge":
-				return "011 0000";
+				setTipoInstrucao('');
+				return "110000";
 			case "lwc1":
+				setTipoInstrucao('');
+				return "110001"
 			case "tgeu":
-				return "011 0001";
+				setTipoInstrucao('');
+				return "110001";
 			case "lwc2":
+				setTipoInstrucao('');
+				return "110010"
 			case "tlt":
-				return "011 0010";
+				setTipoInstrucao('');
+				return "110010";
 			case "pref":
+				setTipoInstrucao('');
+				return "110011"
 			case "tltu":
-				return "011 0011";
+				setTipoInstrucao('');
+				return "110011";
 			case "teq":
-				return "011 0100";
+				setTipoInstrucao('');
+				return "110100";
 			case "ldc1":
-				return "011 0101";
+				setTipoInstrucao('');
+				return "110101";
 			case "ldc2":
+				setTipoInstrucao('');
+				return "110110";
 			case "tne":
-				return "011 0110";
+				setTipoInstrucao('');
+				return "110110";
 			case "sc":
-				return "011 1000";
+				setTipoInstrucao('I');
+				return "111000";
 			case "swc1":
-				return "011 1001";
+				setTipoInstrucao('');
+				return "111001";
 			case "swc2":
-				return "011 1010";
+				setTipoInstrucao('');
+				return "111010";
 			case "sdc1":
-				return "011 1101";
+				setTipoInstrucao('');
+				return "111101";
 			case "sdc2":
-				return "011 1110";
+				setTipoInstrucao('');
+				return "111110";
 			default:
 				return "Parametro nao existe";
 		}
+	}
+
+	public String Registradores_Binario(String opcao){
+		switch (opcao){
+			case "$zero":
+				return "000000";
+			case "$at":
+				return "000001";
+			case "$v0":
+				return "000010";
+			case "$v1":
+				return "000011";
+			case "$a0":
+				return "000100";
+			case "$a1":
+				return "000101";
+			case"$a2":
+				return "000110";
+			case "$a3":
+				return "000111";
+			case "$t0":
+				return "001000";
+			case "$t1":
+				return "001001";
+			case "$t2":
+				return "001010";
+			case "$t3":
+				return "001011";
+			case "$t4":
+				return "001100";
+			case "$t5":
+				return "001101";
+			case "$t6":
+				return "001110";
+			case "$t7":
+				return "001111";
+			case "$s0":
+				return "010000";
+			case "$s1":
+				return "010001";
+			case "$s2":
+				return "010010";
+			case "$s3":
+				return "010011";
+			case "$s4":
+				return "010100";
+			case "$s5":
+				return "010101";
+			case "$s6":
+				return "010110";
+			case "$s7":
+				return "010111";
+			case "$t8":
+				return "011000";
+			case "$t9":
+				return "011001";
+			case "$k0":
+				return "011010";
+			case "$k1":
+				return "011011";
+			case "$gp":
+				return "011100";
+			case "$sp":
+				return "011101";
+			case "$fp":
+				return "011110";
+			case "$ra":
+				return "011111";
+		}
+	}
+
+	public char getTipoInstrucao() {
+		return tipoInstrucao;
+	}
+
+	public void setTipoInstrucao(char tipoInstrucao) {
+		this.tipoInstrucao = tipoInstrucao;
 	}
 }
