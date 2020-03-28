@@ -10,7 +10,7 @@ depois
 java Aplicacao.class
 ```
 
-# Como testar]
+# Como testar
 dfgdgdgdgdfgdffgfsjsdfldjksfsdfsjkdffljksdjkfsfskjlffjklsf
 dsdfsdfsfsfsf
 dfgdgdgdgdfgdffgfsjsdfldjksfsdfsjkdffljksdjkfsfskjlffjklsf
