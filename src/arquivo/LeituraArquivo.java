@@ -6,10 +6,10 @@ public class LeituraArquivo {
 
 	private BufferedReader entrada;
 
-	public void abrirArquivo(String nomeArquivo) {
+	public void abrirArquivo(String nomeArquivo, String caminho) {
 
 		try {
-			entrada = new BufferedReader(new FileReader(nomeArquivo));
+			entrada = new BufferedReader(new FileReader(caminho + nomeArquivo));
 		} catch (FileNotFoundException excecao) {
 			System.out.println("Arquivo nÃ£o encontrado");
 		}

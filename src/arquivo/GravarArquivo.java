@@ -6,10 +6,10 @@ public class GravarArquivo {
 
 	private BufferedWriter saida;
 
-	public void abrirArquivo(String nomeArquivo) {
+	public void abrirArquivo(String nomeArquivo, String caminho) {
 
 		try {
-			saida = new BufferedWriter(new FileWriter(nomeArquivo));
+			saida = new BufferedWriter(new FileWriter(caminho + nomeArquivo));
 		} catch (FileNotFoundException excecao) {
 			System.out.println("Arquivo nÃ£o encontrado");
 		} catch (IOException excecao) {
