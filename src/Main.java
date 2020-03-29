@@ -62,11 +62,11 @@ public class Main {
 		System.out.println(linha + " ----- ");
 
 		if (dictionary.DictionaryCode(linha) == "inexistente") {
-			// return binario.Registradores_Binario(linha);
+			 return binario.Registradores_Binario(linha);
 		} else {
 			System.out.println("Codigo -> " + linha);
 			return dictionary.DictionaryCode(linha);
 		}
 		return linha;
-	}
+	}		
 }
