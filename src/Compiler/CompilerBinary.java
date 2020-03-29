@@ -1,54 +1,56 @@
 package Compiler;
+import java.io.FileNotFoundException;
 
-import Archives.LeituraArquivo;
+import Archives.ReadArchieve;
+import Archives.SaveArchieve;
 
 public class CompilerBinary {
 
-	public void TransformBinary() {
-
-		LeituraArquivo leitura = new LeituraArquivo();
-		GravarArquivo escrita = new GravarArquivo();
-
-		LeituraArquivo ler = new LeituraArquivo();
-		GravarArquivo gravar = new GravarArquivo();
-		Binario binario = new Binario();
-
-		System.out.println(binario.Assembly_Para_Binario("add"));
-		ler.abrirArquivo("type-i.in", "/home/savio-pires/Documentos/faculdade/JSembler/");
-		gravar.abrirArquivo("type-i.out", "/home/savio-pires/Documentos/faculdade/JSembler/");
-		String linhaCodigo = "";
-		String textoEntrada = "";
-		do {
-			linhaCodigo = ler.ler();
-			if (linhaCodigo != null) {
-				char[] codigo = linhaCodigo.toCharArray();
-				linhaCodigo = "";
-				for (int i = 0; i < codigo.length; i++) {
-					if (codigo[i] != ' ') {
-						linhaCodigo += codigo[i];
-					} else {
-						System.out.println(linhaCodigo + " ----- " + codigo[i]);
-						if (binario.Assembly_Para_Binario(linhaCodigo) == "inexistente") {
-							linhaCodigo = linhaCodigo.replace(",", "");
-							linhaCodigo = linhaCodigo.replace(" ", "");
-							System.out.println("Codigo -> " + linhaCodigo);
-							textoEntrada += binario.Registradores_Binario(linhaCodigo);
-							linhaCodigo = "";
-						} else {
-							linhaCodigo = linhaCodigo.replace(",", "");
-							linhaCodigo = linhaCodigo.replace(" ", "");
-							System.out.println("Codigo -> " + linhaCodigo);
-							textoEntrada += binario.Assembly_Para_Binario(linhaCodigo);
-							linhaCodigo = "";
-						}
-					}
+	public void TransformBinary() throws FileNotFoundException {
+		ReadArchieve read = new ReadArchieve("/home/savio-pires/Documentos/faculdade/JSembler/type-i.in");
+		SaveArchieve save = new SaveArchieve("/home/savio-pires/Documentos/faculdade/JSembler/type-i.out");
+		String[] code = read.getFileInArrayFormat();
+		String codeSave = "";
+		
+		for(int i=0; i < read.getArrayLength();i++) {			
+			
+			System.out.println("Linha --> " + code[i]);
+			
+			code[i] = code[i].replace(",", "");
+			
+			char[] codeChar =  code[i].toCharArray();
+			
+			for(int e=0;e<codeChar.length; e++);
+			{
+				if(codeChar[i] == ')') {
+					codeSave = codeSave.replace(")", "");           
+					codeSave = codeSave.replace("(", "");
+					codeSave = codeSave.replace(" ", "");
+					//Binario.setCode(codeSave);
+					codeSave = "";
+				}else if (codeChar[i] != ' ') {
+					codeSave += codeChar[i];
+				         	
+			         if(isInteger(codeSave)) {
+							codeSave = codeSave.replace(" ", "");           							
+							//binario.setNumCode(Integer.parseInt(codeSave));
+							codeSave = "";
+			         }
+				}else {
+					codeSave = codeSave.replace(" ", "");
+					//binario.SetComand(codeSave);
+					codeSave = "";
 				}
-				gravar.escrever(textoEntrada);
-				textoEntrada = "";
 			}
-		} while (linhaCodigo != null);
-		gravar.fecharArquivo();
-		ler.fecharArquivo();
+
+			//save.write(binario.returnCode());	
+		}
+				
+		save.ArchiveClose();
 	}
+
+	private static boolean isInteger(String str) {
+        return str != null && str.matches("[0-9]*");
+    }
 
 }
