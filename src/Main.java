@@ -1,6 +1,6 @@
 
 import Archives.GravarArquivo;
-import Archives.LeituraArquivo;
+import Archives.ReadArchieve;
 import Compiler.Binario;
 import Dictionary.Code;
 
@@ -8,7 +8,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		LeituraArquivo ler = new LeituraArquivo();
+		ReadArchieve ler = new ReadArchieve();
 		GravarArquivo gravar = new GravarArquivo();
 		Binario binario = new Binario();
 
