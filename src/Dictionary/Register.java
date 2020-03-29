@@ -1,5 +1,105 @@
 package Dictionary;
 
 public class Register {
-
+	public String Registradores_Binario(String opcao) {
+		switch (opcao) {
+		case "$zero":
+		case "zero":
+			return "000000";
+		case "$at":
+		case "at":
+			return "000001";
+		case "$v0":
+		case "v0":
+			return "000010";
+		case "$v1":
+		case "v1":
+			return "000011";
+		case "$a0":
+		case "a0":
+			return "000100";
+		case "$a1":
+		case "a1":
+			return "000101";
+		case "$a2":
+		case "a2":
+			return "000110";
+		case "$a3":
+		case "a3":
+			return "000111";
+		case "$t0":
+		case "t0":
+			return "001000";
+		case "$t1":
+		case "t1":
+			return "001001";
+		case "$t2":
+		case "t2":
+			return "001010";
+		case "$t3":
+		case "t3":
+			return "001011";
+		case "$t4":
+		case "t4":
+			return "001100";
+		case "$t5":
+		case "t5":
+			return "001101";
+		case "$t6":
+		case "t6":
+			return "001110";
+		case "$t7":
+		case "t7":
+			return "001111";
+		case "$s0":
+		case "s0":
+			return "010000";
+		case "$s1":
+		case "s1":
+			return "010001";
+		case "$s2":
+		case "s2":
+			return "010010";
+		case "$s3":
+		case "s3":
+			return "010011";
+		case "$s4":
+		case "s4":
+			return "010100";
+		case "$s5":
+		case "s5":
+			return "010101";
+		case "$s6":
+			return "010110";
+		case "$s7":
+		case "s7":
+			return "010111";
+		case "$t8":
+		case "t8":
+			return "011000";
+		case "$t9":
+		case "t9":
+			return "011001";
+		case "$k0":
+		case "k0":
+			return "011010";
+		case "$k1":
+		case "k1":
+			return "011011";
+		case "$gp":
+		case "gp":
+			return "011100";
+		case "$sp":
+		case "sp":
+			return "011101";
+		case "$fp":
+		case "fp":
+			return "011110";
+		case "$ra":
+		case "ra":
+			return "011111";
+		default:
+			return "inexistente";
+		}
+	}
 }
