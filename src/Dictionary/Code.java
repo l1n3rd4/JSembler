@@ -2,7 +2,7 @@ package Dictionary;
 
 public class Code {
 	
-	public String DictionaryCode (String code) {
+	public static String DictionaryCode (String code) {
 		switch (code) {
 		case "ori":
 			return "001101";
@@ -54,3 +54,4 @@ public class Code {
 	}
 
 }
+
