@@ -10,6 +10,10 @@ public class ReadArchieve {
 	private File fileInput;
 	private int fileSize = 0;
 
+	public ReadArchieve(String fileName){
+		this.fileInput = new File(fileName);
+	}
+	
 	public File getFileInput() {
 		return fileInput;
 	}
@@ -18,7 +22,7 @@ public class ReadArchieve {
 		this.fileInput = new File(fileName);
 	}
 
-	public int getArrayLength(File fileInput) throws FileNotFoundException {
+	public int getArrayLength() throws FileNotFoundException {
 		Scanner fileScanner = new Scanner(fileInput);
 		int count = 0;
 		while (fileScanner.hasNextLine()) {
@@ -29,9 +33,9 @@ public class ReadArchieve {
 		return count;
 	}
 
-	public String[] getFileInArrayFormat(File fileInput) throws FileNotFoundException {
+	public String[] getFileInArrayFormat() throws FileNotFoundException {
 		Scanner fileScanner = new Scanner(fileInput);
-		String array[] = new String[getArrayLength(fileInput)];
+		String array[] = new String[getArrayLength()];
 		while (fileScanner.hasNextLine()) {
 			String data = fileScanner.nextLine();
 			array[fileSize] = data;
