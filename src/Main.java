@@ -1,3 +1,5 @@
+import Compiler.Binario;
+import Dictionary.Code;
 import java.io.FileNotFoundException;
 
 import Compiler.CompilerBinary;
@@ -5,6 +7,8 @@ import Compiler.CompilerBinary;
 public class Main {
 
 	public static void main(String[] args) {
+
+	}
 		CompilerBinary  compiler = new CompilerBinary();
 
 		try {
@@ -15,4 +19,5 @@ public class Main {
 		}
 		
 	}
+
 }

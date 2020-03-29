@@ -2,7 +2,7 @@ package Dictionary;
 
 public class Code {
 	
-	public static String DictionaryCode (String code) {
+	public static String Comandos_Binario(String code) {
 		switch (code) {
 		case "ori":
 			return "001101";

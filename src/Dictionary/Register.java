@@ -1,105 +1,105 @@
 package Dictionary;
 
 public class Register {
-	public String Registradores_Binario(String opcao) {
-		switch (opcao) {
+	public static String BinaryRegisters(String option) {
+		switch (option) {
 		case "$zero":
 		case "zero":
-			return "000000";
+			return "00000";
 		case "$at":
 		case "at":
-			return "000001";
+			return "00001";
 		case "$v0":
 		case "v0":
-			return "000010";
+			return "00010";
 		case "$v1":
 		case "v1":
-			return "000011";
+			return "00011";
 		case "$a0":
 		case "a0":
-			return "000100";
+			return "00100";
 		case "$a1":
 		case "a1":
-			return "000101";
+			return "00101";
 		case "$a2":
 		case "a2":
-			return "000110";
+			return "00110";
 		case "$a3":
 		case "a3":
-			return "000111";
+			return "00111";
 		case "$t0":
 		case "t0":
-			return "001000";
+			return "01000";
 		case "$t1":
 		case "t1":
-			return "001001";
+			return "01001";
 		case "$t2":
 		case "t2":
-			return "001010";
+			return "01010";
 		case "$t3":
 		case "t3":
-			return "001011";
+			return "01011";
 		case "$t4":
 		case "t4":
-			return "001100";
+			return "01100";
 		case "$t5":
 		case "t5":
-			return "001101";
+			return "01101";
 		case "$t6":
 		case "t6":
-			return "001110";
+			return "01110";
 		case "$t7":
 		case "t7":
-			return "001111";
+			return "01111";
 		case "$s0":
 		case "s0":
-			return "010000";
+			return "10000";
 		case "$s1":
 		case "s1":
-			return "010001";
+			return "10001";
 		case "$s2":
 		case "s2":
-			return "010010";
+			return "10010";
 		case "$s3":
 		case "s3":
-			return "010011";
+			return "10011";
 		case "$s4":
 		case "s4":
-			return "010100";
+			return "10100";
 		case "$s5":
 		case "s5":
-			return "010101";
+			return "10101";
 		case "$s6":
-			return "010110";
+			return "10110";
 		case "$s7":
 		case "s7":
-			return "010111";
+			return "10111";
 		case "$t8":
 		case "t8":
-			return "011000";
+			return "11000";
 		case "$t9":
 		case "t9":
-			return "011001";
+			return "11001";
 		case "$k0":
 		case "k0":
-			return "011010";
+			return "11010";
 		case "$k1":
 		case "k1":
-			return "011011";
+			return "11011";
 		case "$gp":
 		case "gp":
-			return "011100";
+			return "11100";
 		case "$sp":
 		case "sp":
-			return "011101";
+			return "11101";
 		case "$fp":
 		case "fp":
-			return "011110";
+			return "11110";
 		case "$ra":
 		case "ra":
-			return "011111";
+			return "11111";
 		default:
-			return "inexistente";
+			return null;
 		}
 	}
 }
