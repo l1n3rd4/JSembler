@@ -1,4 +1,4 @@
-package Arquivo;
+package Archives;
 
 import java.io.*;
 

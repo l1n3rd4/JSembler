@@ -1,10 +1,10 @@
-package Main;
 
-import Arquivo.GravarArquivo;
-import Arquivo.LeituraArquivo;
+
+import Archives.GravarArquivo;
+import Archives.LeituraArquivo;
 import Assembly_Binario.Binario;
 
-public class Aplicacao {
+public class Main {
 
 	public static void main(String[] args) {
 		
