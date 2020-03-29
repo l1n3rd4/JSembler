@@ -48,4 +48,3 @@ public class ReadArchieve {
 	public void closeFile(Scanner file) throws ClosedFileSystemException {
 		file.close();
 	}
-}
