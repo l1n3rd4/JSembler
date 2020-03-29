@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 import Archives.GravarArquivo;
 import Archives.LeituraArquivo;
@@ -69,4 +70,12 @@ public class Main {
 		}
 		return linha;
 	}		
+=======
+
+public class Main {
+
+	public static void main(String[] args) {
+
+	}
+>>>>>>> f57156abf440e3c78a22b55544556ce61ff46f02
 }
