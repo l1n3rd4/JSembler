@@ -1,5 +1,7 @@
 language: java
-jdk: -openjdk8
+jdk:
+  - oraclejdk8
 
+script: ant build
 notifications:
   email: marcelohrpaulo13@gmail.com
