@@ -2,7 +2,7 @@ package Dictionary;
 
 public class Code {
 	
-	public static String Comandos_Binario(String code) {
+	public static String DictionaryCode(String code) {
 		switch (code) {
 		case "ori":
 			return "001101";
@@ -48,9 +48,9 @@ public class Code {
 			return "001010";
 		case "sltiu":
 			return "001011";	
-			
+		default:
+			return null;			
 		}
-		return null;
 	}
 
 }
