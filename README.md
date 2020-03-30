@@ -10,28 +10,5 @@ depois
 java Aplicacao.class
 ```
 
-# Como testar
-dfgdgdgdgdfgdffgfsjsdfldjksfsdfsjkdffljksdjkfsfskjlffjklsf
-dsdfsdfsfsfsf
-dfgdgdgdgdfgdffgfsjsdfldjksfsdfsjkdffljksdjkfsfskjlffjklsf
-dsdfsdfsfsfsf
-dfgdgdgdgdfgdffgfsjsdfldjksfsdfsjkdffljksdjkfsfskjlffjklsf
-dsdfsdfsfsfsf
-
-
-## Dados e eventos personalizados
-dfgdgdgdgdfgdffgfsjsdfldjksfsdfsjkdffljksdjkfsfskjlffjklsf
-dsdfsdfsfsfsf
-dfgdgdgdgdfgdffgfsjsdfldjksfsdfsjkdffljksdjkfsfskjlffjklsf
-dsdfsdfsfsfsf
-dfgdgdgdgdfgdffgfsjsdfldjksfsdfsjkdffljksdjkfsfskjlffjklsf
-dsdfsdfsfsfsf
-
-
-### Identificação do usuário
-dfsdfsfsfsf
-gfcghfghfhfhfhf
-
-### Eventos personalizados
 
 
