@@ -1,29 +1,33 @@
 package Compiler;
 
-import Dictionary.Code;
+import Dictionary.Funct;
 import Dictionary.Opcode;
 import Dictionary.Register;
 
 public class Binario {
-	private String type;
-	private String imediato;
+	private String type = "";
+	private String imediato = "";
 	private String shamt = "000000";
-	private String opcode;
-	private String address;
-	private String[] registradores = new String[3];
+	private String opcode = "";
+	private String address = "";
+	private String[] registers;
+	private String funct;
 	
-	public Binario() {
-
-	}
-	
+	public Binario() {}
+  
 	public String getShamt() {
 		return shamt;
 	}
+
+  public void setRegisters(String[] registers){
+      this.registers = registers;
+  }
 
 	public void setImediato(String imediato) {
 		String hexa;
 		this.imediato = "";
 		hexa = Integer.toBinaryString((Integer.parseInt(imediato)));
+		
 		if(hexa.length() == 16) {
 			this.imediato = hexa;
 		} else {
@@ -38,36 +42,33 @@ public class Binario {
 		return imediato;
 	}
 	
-	public void Type() {
-		int contVazio = 0;
-		for(int i=0;i<3;i++) {
-			if(registradores[i ]== " ") {
-				contVazio++;
-			}
-		}
-			
-		if(contVazio  == 1) {
-			setType("I");
-		}else if(contVazio == 0){
-			setType("R");
-		} else {
-			setType("J");
-		}
+	public String Instruction_R_Type() {
+		String retorno;
+		retorno = getOpcode() + Register.BinaryRegisters(registers[0]) + Register.BinaryRegisters(registers[1]) + 
+				Register.BinaryRegisters(registers[2]) + shamt + getFunct();
+		
+		System.out.println("String retorno: " + retorno);
+		return retorno;
 	}
 	
-	public String TipoInstrucao(String comando) {
-		Type();
-		String type = this.getType();
+	public String Instruction_I_Type(String comando) {
+		String retorno;
+		retorno = getOpcode() + Register.BinaryRegisters(registers[0])
+		+ Register.BinaryRegisters(registers[1]) + imediato;
 		
-		if (type == "R") {
-			return getOpcode() + Register.BinaryRegisters(registradores[0]) + Register.BinaryRegisters(registradores[1]) + 
-					Register.BinaryRegisters(registradores[2]) + shamt + Code.DictionaryCode(comando);
-		} else if (type == "I") {
-			return getOpcode() + Register.BinaryRegisters(registradores[0])
-			+ Register.BinaryRegisters(registradores[1]) + imediato;
-		} else{
-			return getOpcode() + getAddress();
-		} 
+		System.out.println("String retorno: " + retorno);
+		return retorno;
+	}
+	
+	
+	public String Instruction_J_Type(String comando) {
+		String retorno;
+		System.out.println("Tipo :" + getType());
+		retorno = getOpcode() + getAddress();
+		
+		System.out.println("Endereço: " + getAddress());
+		System.out.println("String de saída: " + retorno);
+		return retorno;
 	}
 
 	public String NumBinario(int decimal) {
@@ -106,27 +107,27 @@ public class Binario {
 	}
 
 	public void setOpcode(String opcode) {
-		String aux = Integer.toBinaryString((Integer.parseInt(Opcode.opcode(opcode), 16)));;
+		System.out.println("\nInicio funcao setOp: \nString op: " + opcode);
+		String aux = Opcode.opcode(opcode);
+		System.out.println("Codigo Op: " + aux);
 		
 		if(aux.length() == 6) {
-			this.opcode = Integer.toBinaryString((Integer.parseInt(Opcode.opcode(opcode), 16)));
+			this.opcode = aux;
 		} else {
 			for(int i = 0; i < (6 - aux.length()); i++) {
 				this.opcode += "0";
 			}
-			this.opcode += Integer.toBinaryString((Integer.parseInt(Opcode.opcode(opcode), 16)));
+			
+			System.out.println("SetOpcode: " + this.opcode);
+			this.opcode += aux;
 		}
+		
+		System.out.println("Fim função setOp!\n");
 		
 	}
 
-	public String[] getRegistradores() {
-		return registradores;
-	}
-
-	public void setRegistradores(String[] registras) {
-		System.out.println(" regis " + registras.length);
-		this.registradores = registras;
-	
+	public String[] getRegisters() {
+		return registers;
 	}
 
 	public String getAddress() {
@@ -134,6 +135,34 @@ public class Binario {
 	}
 
 	public void setAddress(String address) {
-		this.address = Integer.toBinaryString(Integer.parseInt(address, 16));
+		String endereco = Integer.toBinaryString(Integer.parseInt(address, 16));
+		
+		if(endereco.length() == 26) {
+			this.address = endereco;
+			
+			System.out.println(endereco);
+		}else {
+			for(int i = 0; i < (26 - endereco.length()); i++) {
+				this.address += "0";
+			}
+			
+			System.out.println("Endereço antes: " + getAddress());
+			this.address += endereco;
+		}
+		
+	}
+	
+	public String complete() {
+		return null;
+	}
+
+	public String getFunct() {
+		return funct;
+	}
+
+	public void setFunct(String funct) {
+		this.funct = Integer.toBinaryString(Integer.parseInt(Funct.funct(funct), 16));
 	}
 }
+
+

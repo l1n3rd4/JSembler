@@ -2,6 +2,7 @@ package Dictionary;
 
 public class Register {
 	public static String BinaryRegisters(String option) {
+		System.out.println("Função BinaryRegisters: " + option);
 		switch (option) {
 		case "$zero":
 		case "zero":
@@ -98,6 +99,8 @@ public class Register {
 		case "$ra":
 		case "ra":
 			return "11111";
+		case "0":
+			return "00000";
 		default:
 			return null;
 		}

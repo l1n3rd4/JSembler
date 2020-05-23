@@ -1,54 +1,65 @@
 package Dictionary;
 
 public class Opcode {
+	
 	public static String opcode(String code) {
 		switch (code) {
 		case "ori":
-			return "d";
+			return "001101";
 		case "jr":
-			return "08";
+			return "001000";
 		case "jal":
-			return "3";
+			return "000011";
 		case "add":
-			return "20";
+			return "000000";
 		case "addi":
-			return "8";
+			return "001000";
 		case "xor":
-			return "0";
+			return "100110";
 		case "lw":
-			return "23";
+			return "100011";
 		case "sw":
-			return "2b";
+			return "101011";
 		case "beq":
-			return "4";
+			return "000100";
 		case "bne":
-			return "5";
+			return "000101";
 		case "j":
-			return "2";
+			return "000010";
 		case "sub":
-			return "22";
+			return "100010";
 		case "mult":
-			return "18";
+			return "011000";
 		case "div":
-			return "1a";
+			return "011010";
 		case "and":
-			return "24";
+			return "100100";
 		case "andi":
-			return "c";
+			return "001100";
 		case "or":
-			return "25";			
+			return "100101";			
 		case "addiu":
-			return "9";
+			return "001001";
 		case "jalr":
-			return "0";
+			return "001001";
 		case "slti":
-			return "a";
+			return "001010";
 		case "movz":
-			return "0";
+			return "001010";
 		case "sltiu":
-			return "b";	
+			return "001011";
+		case "sll":
+			return "000000";
+		case "nor":
+			return "100111";
+		case "slt":
+			return "101010";
+		case "srl":
+	    	return "000010";
+		default:
+			return null;			
 		}
-		return null;
 	}
 
 }
+
