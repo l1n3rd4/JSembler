@@ -1,17 +1,17 @@
 package Compiler;
 
 import java.io.FileNotFoundException;
-import Dictionary.InstructionsTypes;
+
 import Archives.ReadArchieve;
 import Archives.SaveArchieve;
-import Dictionary.Opcode;
+import Dictionary.InstructionsTypes;
 import Dictionary.Register;
 
 public class CompilerBinary {
 
 	public void TransformBinary() throws FileNotFoundException {
-		ReadArchieve read = new ReadArchieve("/home/l1n3rd4/eclipse-workspace/JSembler_oficial/src/type-i.in");
-		SaveArchieve save = new SaveArchieve("/home/l1n3rd4/eclipse-workspace/JSembler_oficial/src/type-i.out");
+		ReadArchieve read = new ReadArchieve("/home/savio-pires/Documentos/faculdade/JSembler/src/type-i.in");
+		SaveArchieve save = new SaveArchieve("/home/savio-pires/Documentos/faculdade/JSembler/src/type-i.out");
     
     Binario binario = new Binario();
 		String[] code = read.getFileInArrayFormat();
