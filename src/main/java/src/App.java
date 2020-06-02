@@ -11,9 +11,11 @@ public class App {
 	public static void main(String[] args) {
 			
 		CompilerBinary  compiler = new CompilerBinary();
-
+		System.out.println("Argumento 1: " + args[0]);
+		System.out.println("Argumento 2: " + args[1]);
+		
 		try {
-			compiler.TransformBinary();
+			compiler.TransformBinary(args[0], args[1]);
 		} catch (FileNotFoundException error) {
 			
 			error.printStackTrace();
