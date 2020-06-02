@@ -9,9 +9,9 @@ import src.Dictionary.Register;
 
 public class CompilerBinary {
 
-	public void TransformBinary() throws FileNotFoundException {
-		ReadArchieve read = new ReadArchieve("/home/l1n3rd4/Projects/JSembler/src/main/java/src/type-i.in");
-		SaveArchieve save = new SaveArchieve("/home/l1n3rd4/Projects/JSembler/src/main/java/src/type-i.out");
+	public void TransformBinary(String file_read, String file_save) throws FileNotFoundException {
+		ReadArchieve read = new ReadArchieve(file_read);
+		SaveArchieve save = new SaveArchieve(file_save);
     
     Binario binario = new Binario();
 		String[] code = read.getFileInArrayFormat();

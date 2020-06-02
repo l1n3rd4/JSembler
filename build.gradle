@@ -28,9 +28,13 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 }
 
-
-
 application {
     // Define the main class for the application.
     mainClassName = 'src.App'
 }
+
+jar {
+     manifest {
+        attributes 'Main-Class': 'src.App'
+    }
+ }
