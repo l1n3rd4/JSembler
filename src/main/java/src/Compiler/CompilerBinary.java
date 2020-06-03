@@ -6,14 +6,16 @@ import src.main.java.src.Archives.ReadArchieve;
 import src.main.java.src.Archives.SaveArchieve;
 import src.main.java.src.Dictionary.InstructionsTypes;
 import src.main.java.src.Dictionary.Register;
+import src.main.java.src.Memory.MainMemory;
 
 public class CompilerBinary {
 
 	public void TransformBinary(String file_read, String file_save) throws FileNotFoundException {
+		MainMemory memory = new MainMemory();
 		ReadArchieve read = new ReadArchieve(file_read);
 		SaveArchieve save = new SaveArchieve(file_save);
-    
-    Binario binario = new Binario();
+  		memory.startMemory();  
+                Binario binario = new Binario();
 		String[] code = read.getFileInArrayFormat();
 		String codeSave = "";
 		String[] regisGeneric = new String[3];
@@ -29,8 +31,8 @@ public class CompilerBinary {
 	      for(int j = 0; j < instrucao.length; j++){
     			  instrucao[j] = instrucao[j].replace(")", "");
 		    	  instrucao[j] = instrucao[j].replace("(", "");
-			      instrucao[j] = instrucao[j].replace(" ", "");
-			      instrucao[j] = instrucao[j].replace(",", "");
+			  instrucao[j] = instrucao[j].replace(" ", "");
+		          instrucao[j] = instrucao[j].replace(",", "");
 			      
             if(j == 0){
                 binario.setOpcode(instrucao[j]);
@@ -101,9 +103,10 @@ public class CompilerBinary {
             }
             save.write(codeSave);
             codeSave = "";
-	      }	
-		}
-			save.ArchiveClose();
-		}
+
+	    }	
+       }
+	save.ArchiveClose();
+    }
 		
-	}
+}
