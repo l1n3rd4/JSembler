@@ -1,4 +1,4 @@
-package src.Dictionary;
+package src.main.java.src.Dictionary;
 
 public class Funct {
 	public static String funct(String code) {

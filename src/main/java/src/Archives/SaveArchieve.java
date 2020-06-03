@@ -1,4 +1,4 @@
-package src.Archives;
+package src.main.java.src.Archives;
 
 import java.io.*;
 

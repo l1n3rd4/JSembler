@@ -10,12 +10,12 @@ https://www.oracle.com/java/technologies/javase-jdk8-downloads.html
 ```
 #Instalando Gradle
 ##MacOS
-`brew install gradle`
-##Linux
-###Debian based distros
-`sudo apt-get install gradle`
-###Arch based distros
-`sudo pacman -S gradle`
+```brew install gradle```
+#Linux
+##Debian based distros
+```sudo apt-get install gradle```
+#Arch based distros
+```sudo pacman -S gradle```
 
 # Como fazer build
 ##LINUX

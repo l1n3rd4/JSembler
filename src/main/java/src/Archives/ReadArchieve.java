@@ -1,4 +1,4 @@
-package src.Archives;
+package src.main.java.src.Archives;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -10,8 +10,12 @@ public class ReadArchieve {
 	private File fileInput;
 	private int fileSize = 0;
 
-	public ReadArchieve(String fileName){
-		this.fileInput = new File(fileName);
+	public ReadArchieve(String fileName) throws FileNotFoundException{
+		if(fileName != null){
+			this.fileInput = new File(fileName);	
+		} else{
+			throw new FileNotFoundException();
+		}
 	}
 	
 	public File getFileInput() {

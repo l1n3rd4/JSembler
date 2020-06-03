@@ -1,8 +1,8 @@
-package src.Compiler;
+package src.main.java.src.Compiler;
 
-import src.Dictionary.Register;
-import src.Dictionary.Funct;
-import src.Dictionary.Opcode;
+import src.main.java.src.Dictionary.Register;
+import src.main.java.src.Dictionary.Opcode;
+import src.main.java.src.Dictionary.Funct;
 
 public class Binario {
 	private String type = "";
@@ -69,9 +69,9 @@ public class Binario {
 	
 		public String Instruction_R_Type() {
 		String retorno;
-		retorno = getOpcode() + Register.BinaryRegisters(registers[0]) + 
-					Register.BinaryRegisters(registers[1]) + 
-					Register.BinaryRegisters(registers[2]) + shamt + getFunct();
+		retorno = getOpcode() + Register.BinaryRegisters(registers[1]) + 
+					Register.BinaryRegisters(registers[2]) + 
+					Register.BinaryRegisters(registers[0]) + shamt + getFunct();
 		
 		System.out.println("String retorno: " + retorno);
 		return retorno;

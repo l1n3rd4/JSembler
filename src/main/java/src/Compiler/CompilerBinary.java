@@ -1,11 +1,11 @@
-package src.Compiler;
+package src.main.java.src.Compiler;
 
 import java.io.FileNotFoundException;
 
-import src.Archives.ReadArchieve;
-import src.Archives.SaveArchieve;
-import src.Dictionary.InstructionsTypes;
-import src.Dictionary.Register;
+import src.main.java.src.Archives.ReadArchieve;
+import src.main.java.src.Archives.SaveArchieve;
+import src.main.java.src.Dictionary.InstructionsTypes;
+import src.main.java.src.Dictionary.Register;
 
 public class CompilerBinary {
 
@@ -107,16 +107,3 @@ public class CompilerBinary {
 		}
 		
 	}
-
-//	private static boolean isInteger(String str) {
-//		return str != null && str.matches("[0-9]*");
-//	}
-//
-//	static String reverse(String original) {
-//		String reversed = "";
-//		for (int i = original.length() - 1; 0 <= i; i--) {
-//			reversed += original.charAt(i);
-//		}
-//		return reversed;
-//	}
-//}

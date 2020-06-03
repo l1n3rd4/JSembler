@@ -30,11 +30,11 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClassName = 'src.App'
+    mainClassName = 'src.main.java.src.App'
 }
 
 jar {
      manifest {
-        attributes 'Main-Class': 'src.App'
+        attributes 'Main-Class': 'src.main.java.src.App'
     }
  }
