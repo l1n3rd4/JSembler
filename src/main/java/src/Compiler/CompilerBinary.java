@@ -14,8 +14,10 @@ public class CompilerBinary {
 		MainMemory memory = new MainMemory();
 		ReadArchieve read = new ReadArchieve(file_read);
 		SaveArchieve save = new SaveArchieve(file_save);
-  		memory.startMemory();  
-                Binario binario = new Binario();
+  //		memory.startMemory();  
+		memory.populate();
+
+		Binario binario = new Binario();
 		String[] code = read.getFileInArrayFormat();
 		String codeSave = "";
 		String[] regisGeneric = new String[3];

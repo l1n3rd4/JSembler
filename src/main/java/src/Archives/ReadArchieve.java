@@ -17,6 +17,10 @@ public class ReadArchieve {
 			throw new FileNotFoundException();
 		}
 	}
+
+	public ReadArchieve(File file){
+		fileInput = file;
+	}
 	
 	public File getFileInput() {
 		return fileInput;
