@@ -64,14 +64,18 @@ public class MainMemory{
 	}
 
 
-	/*
+	
 	public void setMemorySlot(int NumberSlot, String data){
-		
+		memory_line[indexMemoryArray(NumberSlot)].setContent(data);		
 	}
-	*/
+	
 
 	
-	public MemoryLine getMemorySlot(int NumberSlot){
-		return memory_line[NumberSlot];
+	public MemoryLine getMemorySlot(int NumberDecimal){
+		return memory_line[indexMemoryArray(NumberDecimal)];
+	}
+
+	public int indexMemoryArray(int MemoryAddress){
+		return (MemoryAddress/16);
 	}
 }
