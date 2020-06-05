@@ -13,6 +13,7 @@ import src.main.java.src.Archives.SaveArchieve;
 public class MainMemory{
 	private static final int MEMORY_SIZE = 4096;
 	private String[] MemorySlots;
+	MemoryLine[] memory_line;
 	ReadArchieve read;
 	SaveArchieve save;
 
@@ -20,27 +21,30 @@ public class MainMemory{
 		read = new ReadArchieve("memory.out");
 		save = new SaveArchieve("memory.out");
 		MemorySlots = new String[MEMORY_SIZE];
-		startMemory();
+		MainMemoryInit();
 	}
 	
 	
 	public void startMemory() throws FileNotFoundException{
 		MemoryLine aux;
-		List<MemoryLine> memory_line = new ArrayList<MemoryLine>();
+		memory_line = new MemoryLine[MEMORY_SIZE];
 		String[] buffer = read.getFileInArrayFormat();
 		String[] pieces;
 
+		System.out.println("buffer: " + buffer + "\nread: " + read);
+
 		for(int i = 0; i < MEMORY_SIZE; i++){
+			System.out.println(buffer[i]);
 			pieces = buffer[i].split(" ", -1);
 			
 			System.out.println("Endereco: " + pieces[0] + "\nConteudo: " + pieces[1]);
 			aux = new MemoryLine(pieces[0], pieces[1]);
-			memory_line.add(aux);
+			memory_line[i] = aux;
 
 		}
 	}
-/*
-	public void populate(){
+
+	public void MainMemoryInit(){
 		int linha1 = 0;
 		String linha = "";
 		
@@ -50,24 +54,24 @@ public class MainMemory{
 			} else {
 				linha = "0x" + Integer.toHexString(linha1)  + " " + "0x" + "00000000"; 
 			}
-			System.out.println(linha);
+		//	System.out.println(linha);
 
 		save.write(linha);
 			linha1 += 16;
 		}
 		
 		save.ArchiveClose();
-		while(true);
 	}
-	*/
+
 
 	/*
 	public void setMemorySlot(int NumberSlot, String data){
-
-	}
-
-	public void getMemorySlot(int NumberSlot){
 		
 	}
 	*/
+
+	
+	public MemoryLine getMemorySlot(int NumberSlot){
+		return memory_line[NumberSlot];
+	}
 }

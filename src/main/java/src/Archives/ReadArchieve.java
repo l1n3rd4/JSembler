@@ -11,6 +11,8 @@ public class ReadArchieve {
 	private int fileSize = 0;
 
 	public ReadArchieve(String fileName) throws FileNotFoundException{
+		System.out.println("FileName: " + fileName);
+
 		if(fileName != null){
 			this.fileInput = new File(fileName);	
 		} else{

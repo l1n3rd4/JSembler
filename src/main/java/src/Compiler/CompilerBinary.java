@@ -12,15 +12,18 @@ public class CompilerBinary {
 
 	public void TransformBinary(String file_read, String file_save) throws FileNotFoundException {
 		MainMemory memory = new MainMemory();
+	//	memory.MainMemoryInit();
+		memory.startMemory();
+		
 		ReadArchieve read = new ReadArchieve(file_read);
-		SaveArchieve save = new SaveArchieve(file_save);
-  //		memory.startMemory();  
-		memory.populate();
+		SaveArchieve save = new SaveArchieve(file_save);  		  
 
 		Binario binario = new Binario();
 		String[] code = read.getFileInArrayFormat();
+		
 		String codeSave = "";
 		String[] regisGeneric = new String[3];
+		
 		String[] regisFinal;
 		String InstructionsType = "";
 		int contRegisters = 0;
