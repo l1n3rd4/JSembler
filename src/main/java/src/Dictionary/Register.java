@@ -1,5 +1,7 @@
 package src.main.java.src.Dictionary;
 
+import src.main.java.src.Archives.SaveArchieve;
+
 public class Register {
 	private String zero;
 	private String at;
@@ -33,6 +35,16 @@ public class Register {
 	private String sp;
 	private String fp;
 	private String ra;
+
+	private static final int NUM_REGISTERS = 32;
+	private SaveArchieve save;
+	private Register[] registers;
+
+	public Register(){
+		save = new SaveArchieve("registers.out");
+//		registers = new Register[NUM_REGISTERS];
+	}
+
 
 	public String GetZero(){
 		return zero;

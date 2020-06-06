@@ -12,7 +12,6 @@ public class CompilerBinary {
 
 	public void TransformBinary(String file_read, String file_save) throws FileNotFoundException {
 		MainMemory memory = new MainMemory();
-	//	memory.MainMemoryInit();
 		memory.startMemory();
 		
 		ReadArchieve read = new ReadArchieve(file_read);
@@ -27,7 +26,8 @@ public class CompilerBinary {
 		String[] regisFinal;
 		String InstructionsType = "";
 		int contRegisters = 0;
-
+		
+		System.out.println("Memory test: " + memory.getMemorySlot(1024).getAddress());
 		for (int i = 0; i < read.getArrayLength(); i++) {
 			System.out.println("Linha --> " + code[i]);
 			
@@ -43,7 +43,7 @@ public class CompilerBinary {
                 binario.setOpcode(instrucao[j]);
                 System.out.println("Instrucao: " + instrucao[j]);
                 System.out.println("Opcode binario: " + binario.getOpcode());
-                
+               	binario.setName_instr(instrucao[j]); 
                 binario.setFunct(instrucao[j]);
                 InstructionsType = InstructionsTypes.getType(instrucao[j]);
             } else if (j >= 1){
@@ -54,7 +54,8 @@ public class CompilerBinary {
               
               if(Register.BinaryRegisters(instrucao[j]) != null){
             	  System.out.println("regis: " + instrucao[j]);
-                  regisGeneric[contRegisters] = instrucao[j];
+                  System.out.println("numero regis: " + contRegisters);
+		  regisGeneric[contRegisters] = instrucao[j];
                   if(contRegisters <= 2) {
                 	  contRegisters++;  
                   }
@@ -68,7 +69,7 @@ public class CompilerBinary {
             
             if(j == instrucao.length - 1) {
             	System.out.println("ContRegisters : " + contRegisters);
-            	
+            	/*
             	if(contRegisters == 2 && InstructionsType == "R") {
             		String reg2 = regisGeneric[1];
             		regisGeneric[1] = regisGeneric[0];
@@ -81,7 +82,7 @@ public class CompilerBinary {
             		regisGeneric[1] = "0";
             		regisGeneric[2] = "0";
             		contRegisters += 2;
-            	}
+            	}*/
             	
             	regisFinal = new String[contRegisters];
             	
@@ -92,8 +93,8 @@ public class CompilerBinary {
             	binario.setRegisters(regisFinal);
 
               if(InstructionsType == "R"){
-                  codeSave = binario.Instruction_R_Type();
-                  System.out.println("binario tipo R: " + codeSave);
+                  codeSave = binario.instruction_fetch();
+                  System.out.println("Instruction fetch function: " + codeSave);
               	} else if (InstructionsType == "J"){
                 	codeSave = binario.Instruction_J_Type(instrucao[j]);
                 	System.out.println("binario tipo J: " + codeSave);

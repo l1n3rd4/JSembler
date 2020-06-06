@@ -7,8 +7,9 @@ import src.main.java.src.Dictionary.Funct;
 public class Binario {
 	private String type = "";
 	private String imediato = "";
-	private String shamt = "000000";
+	private String shamt = "00000";
 	private String opcode = "";
+	private String name_instr = ""; 
 	private String address = "";
 	private String[] registers;
 	private String funct;
@@ -19,9 +20,17 @@ public class Binario {
 		return shamt;
 	}
 
-  public void setRegisters(String[] registers){
-      this.registers = registers;
-  }
+	public void setName_instr(String name_instr){
+		this.name_instr = name_instr;
+	} 
+
+	public String getName_instr(){
+		return name_instr;
+	}
+
+  	public void setRegisters(String[] registers){
+      		this.registers = registers;
+  	}
 
 	public void setImediato(String imediato) {
 		String hexa;
@@ -67,11 +76,19 @@ public class Binario {
 		}		
 	}
 	
-		public String Instruction_R_Type() {
+	public String Instruction_R_Type() {
 		String retorno;
+
+		System.out.println("Opcode dentro do Instruction_R_Type: " + getOpcode());
+
+		System.out.println("Register 0: " + Register.BinaryRegisters(registers[0]));
+		System.out.println("Register 1: " + Register.BinaryRegisters(registers[1]));
+		System.out.println("Register 2: " + Register.BinaryRegisters(registers[2]));	
+		
 		retorno = getOpcode() + Register.BinaryRegisters(registers[1]) + 
 					Register.BinaryRegisters(registers[2]) + 
-					Register.BinaryRegisters(registers[0]) + shamt + getFunct();
+					Register.BinaryRegisters(registers[0]) +
+					shamt + getFunct();  
 		
 		System.out.println("String retorno: " + retorno);
 		return retorno;
@@ -162,6 +179,135 @@ public class Binario {
 	public void setFunct(String funct) {
 		this.funct = Integer.toBinaryString(Integer.parseInt(Funct.funct(funct), 16));
 	}
+
+	public String instruction_fetch() {
+               switch (getName_instr()) {
+                    case "ori":
+                             return "001101";
+                    case "jr":
+                             return "000000";
+                    case "jal":
+                            return "000011";
+                    case "add":
+                           return add_instr();
+                    case "addi":
+              //              return addi_instr();
+                    case "xor":
+                           return "000000";
+                    case "lw":
+           //                 return lw_instr();
+                    case "sw":
+//                            return sw_instr();
+                    case "beq":
+             //               return beq_instr();
+                    case "bne":
+                            return bne_instr();
+                    case "j":
+                            return j_instr();
+                    case "sub":
+                            return sub_instr();
+                    case "mult":
+                            return mult_instr();
+                    case "div":
+                            return div_instr();	   
+  	            case "and":
+       //                     return and_instr();
+                    case "andi":
+                            return "001100";
+                    case "or":
+     //                       return or_instr();
+                    case "slti":
+                            return slti_instr();
+                    case "sll":
+   //                         return sll_instr();
+                    case "nor":
+                            return "000000";
+                    case "slt":
+                	    return slt_instr();
+                    case "srl":
+ //                           return srl_instr();
+ 			      return "q";
+                    default:
+                            System.out.println("instrucao não encontrada: " + getName_instr());     
+			    return "q";
+                    }
+            }
+
+   	public String add_instr(){
+		  return Instruction_R_Type();
+	}
+
+
+	public void addi_instr(){
+		
+	}
+
+	public String sub_instr(){
+		return Instruction_R_Type();
+	}
+
+	public String mult_instr(){
+		String instruction = "";
+
+		instruction = getOpcode() + Register.BinaryRegisters(registers[0])  +
+			 Register.BinaryRegisters(registers[1]) + shamt + getFunct();
+		System.out.println("mult: " + instruction);		
+		return instruction; 
+	}
+
+	public String div_instr(){
+		String instruction = "";
+
+		instruction = getOpcode() + Register.BinaryRegisters(registers[0]) +
+			Register.BinaryRegisters(registers[1]) + shamt + getFunct();
+		
+		System.out.println("div: " + instruction);
+		return instruction;
+	}
+
+//	public void neg_instr(){
+
+//	}
+
+	public String slt_instr(){
+		return Instruction_R_Type();
+	}
+
+	public String slti_instr(){
+		return Instruction_I_Type("s");
+	}
+
+//	public void lw_instr(){
+
+//	}
+
+//	public String sw_instr(){
+
+//	} 
+
+	public String beq_instr(){
+		return Instruction_I_Type("s");
+	}
+
+	public String bne_instr(){
+		return Instruction_I_Type("s");
+	}
+
+	public String j_instr(){
+		return Instruction_J_Type("s");
+	}
+
+//	public String jr_instr(){
+
+//	}
+
+	public String jal_instr(){
+		return Instruction_J_Type("a");
+	}
+
+//	public String srl_instr(){
+		
+//	}
+//
+	
 }
-
-
