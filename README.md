@@ -2,14 +2,14 @@
 1. Instalar o [java] na versão `1.8.0_121`
 2. Instalar Gradle versão `6.4.1`
 
-#Instalando Java
-##Windows
+# Instalando Java
+## Windows
 ```
 Escolha windows x64: 
 https://www.oracle.com/java/technologies/javase-jdk8-downloads.html
 ```
 
-#Instalando Gradle
+# Instalando Gradle
 -> MacOS
 
 ```brew install gradle```
