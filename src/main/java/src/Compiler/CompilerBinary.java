@@ -43,9 +43,12 @@ public class CompilerBinary {
                 binario.setOpcode(instrucao[j]);
                 System.out.println("Instrucao: " + instrucao[j]);
                 System.out.println("Opcode binario: " + binario.getOpcode());
+
                	binario.setName_instr(instrucao[j]); 
                 binario.setFunct(instrucao[j]);
-                InstructionsType = InstructionsTypes.getType(instrucao[j]);
+                System.out.println("Funct" + binario.getFunct());
+		
+		InstructionsType = InstructionsTypes.getType(instrucao[j]);
             } else if (j >= 1){
               System.out.println("Instruction type: " + InstructionsType);
               
@@ -64,47 +67,22 @@ public class CompilerBinary {
                   binario.setImediato(instrucao[j]);
               } else if(InstructionsType == "J"){
                   binario.setAddress(instrucao[j]);
-              }
+	      } 	      
+	
             }
             
             if(j == instrucao.length - 1) {
             	System.out.println("ContRegisters : " + contRegisters);
-            	/*
-            	if(contRegisters == 2 && InstructionsType == "R") {
-            		String reg2 = regisGeneric[1];
-            		regisGeneric[1] = regisGeneric[0];
-            		regisGeneric[2] = reg2;
-            		
-            		contRegisters++;	
-            	}
-            	
-            	if(j == 1 && InstructionsType == "R") {
-            		regisGeneric[1] = "0";
-            		regisGeneric[2] = "0";
-            		contRegisters += 2;
-            	}*/
             	
             	regisFinal = new String[contRegisters];
-            	
+
             	for(int k = 0; k < contRegisters; k++) {
             		regisFinal[k] = regisGeneric[k];
             	}
             	
             	binario.setRegisters(regisFinal);
-
-              if(InstructionsType == "R"){
                   codeSave = binario.instruction_fetch();
-                  System.out.println("Instruction fetch function: " + codeSave);
-              	} else if (InstructionsType == "J"){
-                	codeSave = binario.Instruction_J_Type(instrucao[j]);
-                	System.out.println("binario tipo J: " + codeSave);
-              	} else if(InstructionsType == "I"){
-              		System.out.println("binario tipo I: " + codeSave);
-                	codeSave = binario.Instruction_I_Type(instrucao[j]);
-                } else {
-                  System.out.println("InstructionsType not found!");
-                }
-              
+                  System.out.println("Instruction fetch function: " + codeSave);            
               contRegisters = 0;
             }
             save.write(codeSave);

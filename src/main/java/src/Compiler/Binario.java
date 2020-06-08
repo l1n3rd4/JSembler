@@ -76,7 +76,7 @@ public class Binario {
 		}		
 	}
 	
-	public String Instruction_R_Type() {
+	private String Instruction_R_Type() {
 		String retorno;
 
 		System.out.println("Opcode dentro do Instruction_R_Type: " + getOpcode());
@@ -94,7 +94,7 @@ public class Binario {
 		return retorno;
 	}
 	
-	public String Instruction_I_Type(String comando) {
+	private String Instruction_I_Type() {
 		String retorno;
 		retorno = getOpcode() + Register.BinaryRegisters(registers[0])
 		+ Register.BinaryRegisters(registers[1]) + imediato;
@@ -104,7 +104,7 @@ public class Binario {
 	}
 	
 	
-	public String Instruction_J_Type(String comando) {
+	private String Instruction_J_Type() {
 		String retorno;
 		System.out.println("Tipo :" + getType());
 		retorno = getOpcode() + getAddress();
@@ -178,28 +178,30 @@ public class Binario {
 
 	public void setFunct(String funct) {
 		this.funct = Integer.toBinaryString(Integer.parseInt(Funct.funct(funct), 16));
+
+		System.out.println("Setfunct: " + this.funct);
 	}
 
 	public String instruction_fetch() {
                switch (getName_instr()) {
                     case "ori":
-                             return "001101";
+                           return ori_instr();
                     case "jr":
-                             return "000000";
+                           return jr_instr();
                     case "jal":
-                            return "000011";
+                           return jal_instr();
                     case "add":
                            return add_instr();
                     case "addi":
-              //              return addi_instr();
+                           return addi_instr();
                     case "xor":
-                           return "000000";
+                           return xor_instr();
                     case "lw":
            //                 return lw_instr();
                     case "sw":
 //                            return sw_instr();
                     case "beq":
-             //               return beq_instr();
+                            return beq_instr();
                     case "bne":
                             return bne_instr();
                     case "j":
@@ -211,17 +213,18 @@ public class Binario {
                     case "div":
                             return div_instr();	   
   	            case "and":
-       //                     return and_instr();
+                            return and_instr();
                     case "andi":
-                            return "001100";
+                            return andi_instr();
                     case "or":
-     //                       return or_instr();
+                            return or_instr();
                     case "slti":
                             return slti_instr();
                     case "sll":
-   //                         return sll_instr();
-                    case "nor":
-                            return "000000";
+   //                       return sll_instr();
+                   	    return "q";
+		    case "nor":
+                            return nor_instr();
                     case "slt":
                 	    return slt_instr();
                     case "srl":
@@ -233,13 +236,14 @@ public class Binario {
                     }
             }
 
+
    	public String add_instr(){
 		  return Instruction_R_Type();
 	}
 
 
-	public void addi_instr(){
-		
+	public String addi_instr(){
+		return Instruction_I_Type();	
 	}
 
 	public String sub_instr(){
@@ -274,7 +278,7 @@ public class Binario {
 	}
 
 	public String slti_instr(){
-		return Instruction_I_Type("s");
+		return Instruction_I_Type();
 	}
 
 //	public void lw_instr(){
@@ -286,28 +290,57 @@ public class Binario {
 //	} 
 
 	public String beq_instr(){
-		return Instruction_I_Type("s");
+		return Instruction_I_Type();
 	}
 
 	public String bne_instr(){
-		return Instruction_I_Type("s");
+		return Instruction_I_Type();
 	}
 
 	public String j_instr(){
-		return Instruction_J_Type("s");
+		return Instruction_J_Type();
 	}
 
-//	public String jr_instr(){
+	public String jr_instr(){
+		String instruction = "";
 
-//	}
+		instruction = getOpcode() + Register.BinaryRegisters(registers[0]) +
+			Register.BinaryRegisters("0") + Register.BinaryRegisters("0") +
+			shamt + getFunct();
+		
+		System.out.println("jr inst: " + instruction);
+		return instruction;
+	}
 
 	public String jal_instr(){
-		return Instruction_J_Type("a");
+		return Instruction_J_Type();
 	}
 
 //	public String srl_instr(){
 		
 //	}
-//
 	
+	public String and_instr(){
+		return Instruction_R_Type();
+	}
+
+	public String andi_instr(){
+		return Instruction_I_Type();
+	}
+
+	public String or_instr(){
+		return Instruction_R_Type();
+	}
+
+	public String ori_instr(){
+		return Instruction_I_Type();
+	}
+
+	public String xor_instr(){
+		return Instruction_R_Type();
+	}
+
+	public String nor_instr(){
+		return Instruction_R_Type();
+	}
 }

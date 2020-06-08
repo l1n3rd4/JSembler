@@ -12,9 +12,9 @@ public class Funct {
 		case "add":
 			return "20";
 		case "addi":
-			return "8";
-		case "xor":
 			return "0";
+		case "xor":
+			return "26";
 		case "lw":
 			return "23";
 		case "sw":
