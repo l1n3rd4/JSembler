@@ -39,9 +39,9 @@ public class InstructionsTypes{
       case "or":
         return "R";      
       case "addiu":
-        return "";
+        return "I";
       case "jalr":
-        return "0";
+        return "R";
       case "slt":
     	return "R";
       case "slti":
@@ -51,9 +51,9 @@ public class InstructionsTypes{
       case "sltiu":
         return "I";
       case "nor":
-    	return "R";
+    	  return "R";
       case "sll":
-    	return "R";
+    	  return "R";
       case "srl":
       	return "R";
       default: return null;

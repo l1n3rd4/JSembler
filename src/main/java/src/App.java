@@ -15,7 +15,7 @@ public class App {
  	//	System.out.println("Argumento 2: " + args[1]);
 		
 		if(args.length != 2 &&  args.length != 1){
-			System.out.println("Usage: JSembler [input-file] [output-file]");
+			System.out.println("Usage: JSembler [input-file] [output-file: optional]");
 			return;
 		}
 

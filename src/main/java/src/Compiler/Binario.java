@@ -14,7 +14,7 @@ public class Binario{
 	private String name_instr = ""; 
 	private String address = "";
 	private String[] registers;
-	private String funct;
+	private String funct = "";
 	private int lineAddress;	
 	
 	public Binario() {}
@@ -40,13 +40,15 @@ public class Binario{
 	}
 
   	public void setRegisters(String[] registers){
-      		this.registers = registers;
+      	this.registers = registers;
   	}
 
 	public void setImediato(String imediato) {
 		String hexa;
 		this.imediato = "";
 		hexa = Integer.toBinaryString((Integer.parseInt(imediato)));
+
+		System.out.println("hexa size: " + hexa.length());
 		
 		if(hexa.length() == 16) {
 			this.imediato = hexa;
@@ -61,8 +63,6 @@ public class Binario{
 	public String getImediato() {
 		return imediato;
 	}
-	
-	
 
 	public String NumBinario(int decimal) {
 		String bin = "";
@@ -166,7 +166,7 @@ public class Binario{
 	}
 
 	public void setAddress(String address) {
-		String endereco = Integer.toBinaryString(Integer.parseInt(address, 16));
+		String endereco = Integer.toBinaryString(Integer.parseInt(address));
 		
 		if(endereco.length() == 26) {
 			this.address = endereco;
@@ -188,7 +188,16 @@ public class Binario{
 	}
 
 	public void setFunct(String funct) {
-		this.funct = Integer.toBinaryString(Integer.parseInt(Funct.funct(funct), 16));
+		String bufferfunct = Integer.toBinaryString(Integer.parseInt(Funct.funct(funct), 16));
+
+		if(bufferfunct.length() == 6) {
+			this.funct = bufferfunct;
+		}else {
+			for(int i = 0; i < (6 - bufferfunct.length()); i++) {
+				this.funct += "0";
+			}
+			this.funct += bufferfunct;
+		}
 
 		System.out.println("Setfunct: " + this.funct);
 	}
@@ -223,7 +232,7 @@ public class Binario{
                            return mult_instr();
                     case "div":
                            return div_instr();	   
-  	            case "and":
+  	                case "and":
                            return and_instr();
                     case "andi":
                            return andi_instr();
@@ -232,9 +241,9 @@ public class Binario{
                     case "slti":
                            return slti_instr();
                     case "sll":
-   //                      return sll_instr();
+   //                  return sll_instr();
                    	   return "q";
-		    case "nor":
+		            case "nor":
                             return nor_instr();
                     case "slt":
                 	    return slt_instr();
@@ -294,13 +303,13 @@ public class Binario{
 	}
 
 	public String mult_instr(){
-		
+		/*
 		int resultLo;
 		int resultHi;
 		int register1 = Integer.parseInt(Register.GetRegisters(registers[0]));
 		int register2 = Integer.parseInt(Register.GetRegisters(registers[1]));
 
-		if(register1 * register2 <=  429496729){			
+		if(register1 * register2 <=  4294967299.){			
 			resultLo = register1 * register2;
 
 			Register.SetRegisters("lo", Integer.toString(resultLo));
@@ -311,11 +320,14 @@ public class Binario{
 			Register.SetRegisters("lo", Integer.toString(resultLo));
 			Register.SetRegisters("hi", Integer.toString(resultHi));
 		}
+		*/
 
 		String instruction = "";
 
 		instruction = getOpcode() + Register.BinaryRegisters(registers[0])  +
-			 Register.BinaryRegisters(registers[1]) + shamt + getFunct();
+			 Register.BinaryRegisters(registers[1])+ Register.BinaryRegisters("0")
+			 + shamt + getFunct();
+
 		System.out.println("mult: " + instruction);		
 		return instruction; 
 	}
@@ -334,7 +346,8 @@ public class Binario{
 		String instruction = "";
 
 		instruction = getOpcode() + Register.BinaryRegisters(registers[0]) +
-			Register.BinaryRegisters(registers[1]) + shamt + getFunct();
+			Register.BinaryRegisters(registers[1]) + Register.BinaryRegisters("0") +
+			 shamt + getFunct();
 		
 		System.out.println("div: " + instruction);
 		return instruction;
@@ -359,18 +372,18 @@ public class Binario{
 		String instruction = "";
 		
 		instruction = getOpcode() + Register.BinaryRegisters(registers[0]) +
-			    Register.BinaryRegisters(registers[1]) + getAddress();
+			    Register.BinaryRegisters(registers[1]) + getImediato();
 
 		return instruction;
 	}
 
 	public String sw_instr(){
-		MainMemory.setMemorySlot(getLineAddress(), Register.GetRegisters(registers[0]));	
+		        //MainMemory.setMemorySlot(getLineAddress(), Register.GetRegisters(registers[0]));	
                 String instruction = "";
 
-                instruction = getOpcode() + Register.BinaryRegisters(registers[0]) +
-                Register.BinaryRegisters(registers[1]) + getAddress();
-		System.out.println("Endereço sw: " + getAddress());
+                instruction = getOpcode() + Register.BinaryRegisters(registers[1]) +
+                Register.BinaryRegisters(registers[0]) + getImediato();
+		        System.out.println("Endereço sw: " + getImediato());
                 return instruction;
 	} 
 
@@ -427,5 +440,12 @@ public class Binario{
 
 	public String nor_instr(){
 		return Instruction_R_Type();
+	}
+
+	public void restartValues(){
+		funct = "";
+		opcode = "";
+		address = "";
+		imediato = "";
 	}
 }

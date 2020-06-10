@@ -86,6 +86,7 @@ public class CompilerBinary {
 			int endereco = Integer.parseInt(buffer[0]) + 
 			             Integer.parseInt(Register.GetRegisters(buffer[1]));				
 			binario.setLineAddress(endereco);
+			binario.setImediato(buffer[0]);
 			binario.setAddress(Integer.toHexString(endereco));
 		 	instr_access_memory = false;
 		      }else {
@@ -120,10 +121,11 @@ public class CompilerBinary {
               contRegisters = 0;  
             }
             save.write(codeSave);
-            codeSave = ""; 
+			codeSave = "";
+			//binario.restartValues(); 
 	    }
        }
 	save.ArchiveClose();
     }
-		
+			
 }
