@@ -13,9 +13,9 @@ import src.main.java.src.Archives.SaveArchieve;
 public class MainMemory{
 	private static final int MEMORY_SIZE = 4096;
 	private String[] MemorySlots;
-	MemoryLine[] memory_line;
-	ReadArchieve read;
-	SaveArchieve save;
+	static MemoryLine[] memory_line;
+	static ReadArchieve read;
+	static SaveArchieve save;
 
 	public MainMemory() throws FileNotFoundException{
 		read = new ReadArchieve("memory.out");
@@ -25,7 +25,7 @@ public class MainMemory{
 	}
 	
 	
-	public void startMemory() throws FileNotFoundException{
+	public static void startMemory() throws FileNotFoundException{
 		MemoryLine aux;
 		memory_line = new MemoryLine[MEMORY_SIZE];
 		String[] buffer = read.getFileInArrayFormat();
@@ -44,7 +44,7 @@ public class MainMemory{
 		}
 	}
 
-	public void MainMemoryInit(){
+	public static void MainMemoryInit(){
 		int linha1 = 0;
 		String linha = "";
 		
@@ -65,17 +65,17 @@ public class MainMemory{
 
 
 	
-	public void setMemorySlot(int NumberSlot, String data){
+	public static void setMemorySlot(int NumberSlot, String data){
 		memory_line[indexMemoryArray(NumberSlot)].setContent(data);		
 	}
 	
 
 	
-	public MemoryLine getMemorySlot(int NumberDecimal){
+	public static MemoryLine getMemorySlot(int NumberDecimal){
 		return memory_line[indexMemoryArray(NumberDecimal)];
 	}
 
-	public int indexMemoryArray(int MemoryAddress){
+	public static int indexMemoryArray(int MemoryAddress){
 		return (MemoryAddress/16);
 	}
 }
