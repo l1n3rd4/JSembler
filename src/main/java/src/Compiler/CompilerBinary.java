@@ -34,13 +34,12 @@ public class CompilerBinary {
 		
 		System.out.println("Memory test: " + MainMemory.getMemorySlot(1024).getAddress());
 		for (int i = 0; i < read.getArrayLength(); i++) {
+			binario.restartValues();
 			System.out.println("Linha --> " + code[i]);
 			
 			String[] instrucao = code[i].split(" ", -1);
 				
 	      for(int j = 0; j < instrucao.length; j++){
-    	//		  instrucao[j] = instrucao[j].replace(")", "");
-	//	    	  instrucao[j] = instrucao[j].replace("(", "");
 			  instrucao[j] = instrucao[j].replace(" ", "");
 		          instrucao[j] = instrucao[j].replace(",", "");
 			      
@@ -121,10 +120,11 @@ public class CompilerBinary {
               contRegisters = 0;  
             }
             save.write(codeSave);
-			codeSave = "";
-			//binario.restartValues(); 
+	    codeSave = ""; 
 	    }
        }
+
+        MainMemory.MainMemorySave();
 	save.ArchiveClose();
     }
 			

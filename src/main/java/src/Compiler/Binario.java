@@ -63,29 +63,6 @@ public class Binario{
 	public String getImediato() {
 		return imediato;
 	}
-
-	public String NumBinario(int decimal) {
-		String bin = "";
-		System.out.println("decimal --> " + decimal);
-		while (decimal > 0) {
-			if (decimal % 2 == 0)
-				bin = "0" + bin;
-
-			else
-				bin = "1" + bin;
-
-			decimal /= 2;
-		}
-		if(bin.length() == 4) {
-			return bin;	
-		}else{
-			String binarioFinal = "";
-			for(int i= bin.length(); i != 4;i++) {
-				binarioFinal += "0";
-			}
-			return binarioFinal + bin;
-		}		
-	}
 	
 	private String Instruction_R_Type() {
 		String retorno;
@@ -361,10 +338,33 @@ public class Binario{
 //	}
 
 	public String slt_instr(){
+		String result;
+		int register1 = Integer.parseInt(Register.GetRegisters(registers[1]));
+		int register2 = Integer.parseInt(Register.GetRegisters(registers[2]));
+
+		if(register1 < register2){
+			result = "1";
+		} else {
+			result = "0";
+		}
+	
+		Register.SetRegisters(registers[0], result);
 		return Instruction_R_Type();
 	}
 
 	public String slti_instr(){
+		String result;
+		int register = Integer.parseInt(Register.GetRegisters(registers[1]));
+		int imediato = Integer.parseInt(getImediato(), 2);
+		
+		if(register < imediato){
+			result = "1";
+		} else {
+			result = "0";
+		}
+
+		Register.SetRegisters(registers[0], result);
+
 		return Instruction_I_Type();
 	}
 
@@ -381,13 +381,15 @@ public class Binario{
 	}
 
 	public String sw_instr(){
-		        //MainMemory.setMemorySlot(getLineAddress(), Register.GetRegisters(registers[0]));	
-                String instruction = "";
+	        MainMemory.setMemorySlot(getLineAddress(), Register.GetRegisters(registers[0]));	
+               
+		String instruction = "";
 
                 instruction = getOpcode() + Register.BinaryRegisters(registers[1]) +
                 Register.BinaryRegisters(registers[0]) + getImediato();
 		        System.out.println("Endereço sw: " + getImediato());
-                return instruction;
+         
+		return instruction;
 	} 
 
 	public String beq_instr(){
@@ -417,15 +419,28 @@ public class Binario{
 		return Instruction_J_Type();
 	}
 
-//	public String srl_instr(){
-		
-//	}
-	
 	public String and_instr(){
+		int register1 = Integer.parseInt(Register.GetRegisters(registers[1]));
+		int register2 = Integer.parseInt(Register.GetRegisters(registers[2]));
+
+		if(register1 == register2){
+			Register.SetRegisters(registers[0], "1");
+		} else{
+			Register.SetRegisters(registers[0], "0");	
+		} 
+
 		return Instruction_R_Type();
 	}
 
 	public String andi_instr(){
+		String register = Register.GetRegisters(registers[1]);
+		String imediato = Integer.toString(Integer.parseInt(getImediato(), 2));
+	
+		if(register.equals(imediato)){
+			Register.SetRegisters(registers[0], "1");
+		} else {
+			Register.SetRegisters(registers[0], "0");
+		}
 		return Instruction_I_Type();
 	}
 

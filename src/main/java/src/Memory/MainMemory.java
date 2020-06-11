@@ -63,13 +63,20 @@ public class MainMemory{
 		save.ArchiveClose();
 	}
 
+	public static void MainMemorySave(){
+		String linha = "";
 
+		for(int i = 0; i < MEMORY_SIZE; i++){
+			linha = memory_line[i].getAddress() + " " + memory_line[i].getContent();
+			save.write(linha);
+		}
+
+		save.ArchiveClose();
+	}
 	
 	public static void setMemorySlot(int NumberSlot, String data){
 		memory_line[indexMemoryArray(NumberSlot)].setContent(data);		
-	}
-	
-
+	}	
 	
 	public static MemoryLine getMemorySlot(int NumberDecimal){
 		return memory_line[indexMemoryArray(NumberDecimal)];

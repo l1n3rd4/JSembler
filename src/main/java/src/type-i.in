@@ -7,8 +7,6 @@ or s0, s1, s2
 xor s0, s1, s2
 nor s0, s1, s2
 slt s0, s1, s2
-sll s0, s1, 1
-srl s0, s1, 1
 jr s0
 j 1024
 jal 1024
