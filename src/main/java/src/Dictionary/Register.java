@@ -3,7 +3,7 @@ package src.main.java.src.Dictionary;
 import src.main.java.src.Archives.SaveArchieve;
 
 public class Register {
-	private static String zero;
+	private static String zero = "000000";
 	private static String at;
 	private static String v0;
 	private static String v1;
@@ -43,6 +43,7 @@ public class Register {
 
 	public Register(){
 		save = new SaveArchieve("registers.out");
+		registersInit();
 	}
 	
 	public static void SetHi(String content){
@@ -664,6 +665,44 @@ public class Register {
 		default:
 			return null;
 		}
+	}
+
+	public void registersInit(){
+		String content = "000000";
+
+		SetAt(content);
+		SetV0(content);
+		SetV1(content);
+		SetA0(content);
+		SetA1(content);
+		SetA2(content);
+		SetA3(content);
+		SetT0(content);
+		SetT1(content);
+		SetT2(content);
+		SetT3(content);
+		SetT4(content);
+		SetT5(content);
+		SetT6(content);
+		SetT7(content);
+		SetS0(content);
+		SetS1(content);
+		SetS2(content);
+		SetS3(content);
+		SetS4(content);
+		SetS5(content);
+		SetS6(content);
+		SetS7(content);
+		SetT8(content);
+		SetT9(content);
+		SetK0(content);
+		SetK1(content);
+		SetGp(content);
+		SetFp(content);
+	        SetSp(content);
+		SetRa(content);
+		SetLo(content);
+		SetHi(content);
 	}
 
 	public void registerSaveArchive(){
