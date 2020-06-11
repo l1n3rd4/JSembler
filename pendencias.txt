@@ -1,7 +1,6 @@
 - Função para gravar memória principal no arquivo;
 - Função para gravar registradores no arquivo;
 - Adicionar mudança do valor dos registradores nas funções:
--> xor, nor, ori, jal, and, andi, or, slt, slti;
+-> xor, nor, ori, and, andi, or;
 - Criar documentação;
-- Resolver Bugs no Binário;
-- Criar testes unitários(Se der tempo kk); 
+
