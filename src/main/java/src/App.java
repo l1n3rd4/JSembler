@@ -13,12 +13,13 @@ public class App {
 		CompilerBinary  compiler = new CompilerBinary();
 	//	System.out.println("Argumento 1: " + args[0]);
  	//	System.out.println("Argumento 2: " + args[1]);
-		
+		//Se o tamanho do argumento for diferente de 2 e 1 exibira a mensagem
 		if(args.length != 2 &&  args.length != 1){
 			System.out.println("Usage: JSembler [input-file] [output-file: optional]");
 			return;
 		}
-
+		//se o tamanho do argumento for igual a 2, passar os dois paramentos para o compiler 
+		//Senao passar somente um argumento  
 		try {
 			if(args.length == 2){
 				compiler.TransformBinary(args[0], args[1]);
