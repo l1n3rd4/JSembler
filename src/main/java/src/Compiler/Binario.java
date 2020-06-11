@@ -107,8 +107,8 @@ public class Binario{
 	
 	private String Instruction_I_Type() {
 		String retorno;
-		retorno = getOpcode() + Register.BinaryRegisters(registers[0])
-		+ Register.BinaryRegisters(registers[1]) + imediato;
+		retorno = getOpcode() + Register.BinaryRegisters(registers[1])
+		+ Register.BinaryRegisters(registers[0]) + imediato;
 		
 		System.out.println("String retorno: " + retorno);
 		return retorno;

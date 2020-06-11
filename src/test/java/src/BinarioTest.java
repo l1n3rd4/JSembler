@@ -134,4 +134,32 @@ public class BinarioTest {
 
 	   assertEquals("00001100000000000000010000000000", binario.instruction_fetch());
    }
+
+   @Test
+   public void addi_Test(){
+   	   Register.SetS0("2");
+	   Register.SetS1("2");
+	   String[] registers = {"s0", "s1"};
+	   binario.setRegisters(registers);   
+	
+   	   binario.setOpcode("addi");
+	   binario.setName_instr("addi");
+	   binario.setImediato("1");
+
+	   assertEquals("00100010001100000000000000000001", binario.instruction_fetch());
+   }
+
+   @Test
+   public void andi_Test(){
+	   Register.SetS0("2");
+	   Register.SetS1("2");
+	   String[] registers = {"s0", "s1"};
+	   binario.setRegisters(registers);
+
+	   binario.setOpcode("andi");
+	   binario.setName_instr("andi");
+	   binario.setImediato("1");
+	
+	   assertEquals("00110010001100000000000000000001", binario.instruction_fetch());   
+   }
 }
