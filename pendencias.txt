@@ -1,5 +1,3 @@
-- Função para gravar memória principal no arquivo;
-- Função para gravar registradores no arquivo;
 - Adicionar mudança do valor dos registradores nas funções:
 -> xor, nor, ori, and, andi, or;
 - Criar documentação;
