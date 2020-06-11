@@ -105,4 +105,33 @@ public class BinarioTest {
 
 	   assertEquals("00000010001100101000000000100100",binario.instruction_fetch());
    }
+
+   @Test
+   public void or_Test(){
+	   String[] registers = {"s0","s1","s2"};
+	   binario.setOpcode("or");
+	   binario.setFunct("or");
+	   binario.setName_instr("or");
+	   binario.setRegisters(registers);
+	   
+	   assertEquals("00000010001100101000000000100101", binario.instruction_fetch());
+   }
+
+   @Test
+   public void j_Test(){
+	   binario.setOpcode("j");
+	   binario.setName_instr("j");
+	   binario.setAddress("1024");
+
+	   assertEquals("00001000000000000000010000000000", binario.instruction_fetch()); 
+   }
+
+   @Test
+   public void jal_Test(){
+	   binario.setOpcode("jal");
+	   binario.setName_instr("jal");
+	   binario.setAddress("1024");
+
+	   assertEquals("00001100000000000000010000000000", binario.instruction_fetch());
+   }
 }

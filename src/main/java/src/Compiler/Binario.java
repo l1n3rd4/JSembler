@@ -166,8 +166,11 @@ public class Binario{
 	}
 
 	public void setAddress(String address) {
-		String endereco = Integer.toBinaryString(Integer.parseInt(address));
-		
+		String endereco = Integer.toBinaryString(Integer.parseInt(address));	
+		System.out.println("endereco dentro da função set" + endereco);
+		String test ="0000110000000000000010000000000";
+		String test2 = "00000010001100101000000000100101";
+		System.out.println("Index: " + (test2.length()));
 		if(endereco.length() == 26) {
 			this.address = endereco;
 			
