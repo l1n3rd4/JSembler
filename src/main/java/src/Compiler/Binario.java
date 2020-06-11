@@ -303,7 +303,7 @@ public class Binario{
 	}
 
 	public String mult_instr(){
-		/*
+		
 		int resultLo;
 		int resultHi;
 		int register1 = Integer.parseInt(Register.GetRegisters(registers[0]));
@@ -320,7 +320,7 @@ public class Binario{
 			Register.SetRegisters("lo", Integer.toString(resultLo));
 			Register.SetRegisters("hi", Integer.toString(resultHi));
 		}
-		*/
+		
 
 		String instruction = "";
 
