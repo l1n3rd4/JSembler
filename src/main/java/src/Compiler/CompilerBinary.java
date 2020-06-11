@@ -13,7 +13,7 @@ public class CompilerBinary {
 	public void TransformBinary(String file_read, String file_save) throws FileNotFoundException {
 		MainMemory memory = new MainMemory();
 		MainMemory.startMemory();
-		
+		Register register = new Register();
 		ReadArchieve read = new ReadArchieve(file_read);
 		SaveArchieve save = new SaveArchieve(file_save);  		  
 
@@ -123,7 +123,8 @@ public class CompilerBinary {
 	    codeSave = ""; 
 	    }
        }
-
+	
+       	register.registerSaveArchive();
         MainMemory.MainMemorySave();
 	save.ArchiveClose();
     }
