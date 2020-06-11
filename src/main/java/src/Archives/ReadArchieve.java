@@ -10,6 +10,7 @@ public class ReadArchieve {
 	private File fileInput;
 	private int fileSize = 0;
 
+	
 	public ReadArchieve(String fileName) throws FileNotFoundException{
 		System.out.println("FileName: " + fileName);
 
