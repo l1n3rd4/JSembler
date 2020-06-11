@@ -34,14 +34,13 @@ public class MainMemory{
 		System.out.println("buffer: " + buffer + "\nread: " + read);
 
 		for(int i = 0; i < MEMORY_SIZE; i++){
-			System.out.println(buffer[i]);
+//			System.out.println(buffer[i]);
 			pieces = buffer[i].split(" ", -1);
 			
 			System.out.println("Endereco: " + pieces[0] + "\nConteudo: " + pieces[1]);
 			aux = new MemoryLine(pieces[0], pieces[1]);
 			memory_line[i] = aux;
-
-		}
+		} 
 	}
 
 	public static void MainMemoryInit(){
@@ -65,10 +64,12 @@ public class MainMemory{
 
 	public static void MainMemorySave(){
 		String linha = "";
+		save = new SaveArchieve("memory.out");
 
 		for(int i = 0; i < MEMORY_SIZE; i++){
 			linha = memory_line[i].getAddress() + " " + memory_line[i].getContent();
 			save.write(linha);
+			System.out.println(linha);
 		}
 
 		save.ArchiveClose();
