@@ -1,1 +1,4 @@
 language: java 
+
+notifications:
+  slack: nanvix:OCUIMxeL175W3kgz3LA6uvsV
