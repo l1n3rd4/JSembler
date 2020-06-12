@@ -266,6 +266,18 @@ public class BinarioTest {
 		assertEquals("00000010001100101000000000100110", binario.instruction_fetch());
 	}
 
-//	@Test
-//	public void nor
+	@Test
+	public void nor_Test(){
+		Register.SetS0("2");
+		Register.SetS1("2");
+		Register.SetS2("2");
+		String[] registers = {"s0", "s1", "s2"};
+
+		binario.setRegisters(registers);
+		binario.setOpcode("nor");
+		binario.setName_instr("nor");
+		binario.setFunct("nor");
+
+		assertEquals("00000010001100101000000000100111", binario.instruction_fetch());
+	}
 }

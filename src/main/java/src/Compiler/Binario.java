@@ -303,6 +303,9 @@ public class Binario {
 	}
 
 	public String neg_instr() {
+		int register = Integer.parseInt(Register.GetRegisters(registers[1]));
+		Register.SetRegisters(registers[0], Integer.toString(-register));
+
 		String instruction = "";
 
 		instruction = getOpcode() + Register.BinaryRegisters(registers[1]) + Register.BinaryRegisters(registers[0])
