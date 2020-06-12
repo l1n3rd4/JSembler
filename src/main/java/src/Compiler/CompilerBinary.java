@@ -59,34 +59,28 @@ public class CompilerBinary {
 
 					if (Register.BinaryRegisters(instrucao[j]) != null || instr_access_memory == true) {
 						if (instr_access_memory && j == 2) {
-							System.out.println("antes split " + instrucao[j]);
 							instrucao[j] = instrucao[j].replace("(", " ");
 							buffer = instrucao[j].split(" ", -1);
-							System.out.println("Parte 1:" + buffer[0]);
 							buffer[0] = buffer[0].replace(" ", "");
-							System.out.println("Parte 2 " + buffer[1]);
 							buffer[1] = buffer[1].replace(")", "");
-
-							System.out.println("lw register: " + buffer[1]);
-							System.out.println("Int: " + buffer[0]);
 
 							regisGeneric[contRegisters] = buffer[1];
 							int endereco = Integer.parseInt(buffer[0])
 									+ Integer.parseInt(Register.GetRegisters(buffer[1]));
+							
 							binario.setLineAddress(endereco);
 							binario.setImediato(buffer[0]);
 							binario.setAddress(Integer.toHexString(endereco));
 							instr_access_memory = false;
 						} else {
-							System.out.println("regis: " + instrucao[j]);
-							System.out.println("numero regis: " + contRegisters);
 							regisGeneric[contRegisters] = instrucao[j];
 						}
+
 						if (contRegisters <= 2) {
 							contRegisters++;
 						}
+
 					} else if (InstructionsType == "I") {
-						System.err.println("teste");
 						binario.setImediato(instrucao[j]);
 					} else if (InstructionsType == "J") {
 						binario.setAddress(instrucao[j]);
@@ -95,7 +89,6 @@ public class CompilerBinary {
 				}
 
 				if (j == instrucao.length - 1) {
-					System.out.println("ContRegisters : " + contRegisters);
 
 					regisFinal = new String[contRegisters];
 
@@ -105,7 +98,7 @@ public class CompilerBinary {
 
 					binario.setRegisters(regisFinal);
 					codeSave = binario.instruction_fetch();
-					System.out.println("Instruction fetch function: " + codeSave);
+	
 					contRegisters = 0;
 				}
 				save.write(codeSave);

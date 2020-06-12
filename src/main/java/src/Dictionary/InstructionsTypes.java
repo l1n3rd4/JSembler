@@ -2,7 +2,6 @@ package src.main.java.src.Dictionary;
 
 public class InstructionsTypes{
   public static String getType(String type){
-	  System.out.println("tipo dentro do getType: " + type);
     switch(type){
       case "ori":
         return "I";

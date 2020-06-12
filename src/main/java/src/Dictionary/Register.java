@@ -37,282 +37,281 @@ public class Register {
 	private static String ra;
 	private static String lo;
 	private static String hi;
- 
-	private SaveArchieve save;
-	private Register[] registers;
 
-	public Register(){
+	private SaveArchieve save;
+	
+	public Register() {
 		save = new SaveArchieve("registers.out");
 		registersInit();
 	}
-	
-	public static void SetHi(String content){
+
+	public static void SetHi(String content) {
 		hi = content;
 	}
 
-	public static String GetHi(){
+	public static String GetHi() {
 		return hi;
 	}
 
-	public static void SetLo(String content){
+	public static void SetLo(String content) {
 		lo = content;
 	}
 
-	public static String GetLo(){
+	public static String GetLo() {
 		return lo;
 	}
 
-	public static String GetZero(){
+	public static String GetZero() {
 		return zero;
 	}
 
-	public static void SetAt(String content){
+	public static void SetAt(String content) {
 		at = content;
-	} 
-
-	public static String GetAt(){
-		return at;
-	}	
-
-	public static void SetV0(String content){
-                v0 = content;
-        }
-   
-        public static String GetV0(){
-                return v0;
- 	}
-
-	public static void SetV1(String content){
-                v1 = content;
-        }
-
-	public static String GetV1(){
-	       return v1;
-   	}
-
-	public static void SetA0(String content){
-               a0 = content;
-        }
-
-        public static String GetA0(){
-              return a0;
-        }
-
-	public static void SetA1(String content){
-              a1 = content;
-        }
-   
-	public static String GetA1(){
-             return a1;
-        }
-
-	public static void SetA2(String content){
-             a2 = content;
-        }
-
-        public static String GetA2(){
-              return a2;
-        }
-
-	public static void SetA3(String content){
-	      a3 = content;
-        }
-
-	public static String GetA3(){
-   	      return a3;
 	}
 
-	public static void SetT0(String content){
+	public static String GetAt() {
+		return at;
+	}
+
+	public static void SetV0(String content) {
+		v0 = content;
+	}
+
+	public static String GetV0() {
+		return v0;
+	}
+
+	public static void SetV1(String content) {
+		v1 = content;
+	}
+
+	public static String GetV1() {
+		return v1;
+	}
+
+	public static void SetA0(String content) {
+		a0 = content;
+	}
+
+	public static String GetA0() {
+		return a0;
+	}
+
+	public static void SetA1(String content) {
+		a1 = content;
+	}
+
+	public static String GetA1() {
+		return a1;
+	}
+
+	public static void SetA2(String content) {
+		a2 = content;
+	}
+
+	public static String GetA2() {
+		return a2;
+	}
+
+	public static void SetA3(String content) {
+		a3 = content;
+	}
+
+	public static String GetA3() {
+		return a3;
+	}
+
+	public static void SetT0(String content) {
 		t0 = content;
-        }
+	}
 
-        public static String GetT0(){
-        	return t0;
-        }	
+	public static String GetT0() {
+		return t0;
+	}
 
-	public static void SetT1(String content){
+	public static void SetT1(String content) {
 		t1 = content;
 	}
-   
-        public static String GetT1(){
+
+	public static String GetT1() {
 		return t1;
-        }
-
-	public static void SetT2(String content){
-	        t2 = content; 
 	}
-  
-   	public static String GetT2(){
+
+	public static void SetT2(String content) {
+		t2 = content;
+	}
+
+	public static String GetT2() {
 		return t2;
-   	}
+	}
 
-	public static void SetT3(String content){
-   	     t3 = content;
-        }
-   
-        public static String GetT3(){
-   	     return t3;
-        }
+	public static void SetT3(String content) {
+		t3 = content;
+	}
 
-	public static void SetT4(String content){
+	public static String GetT3() {
+		return t3;
+	}
+
+	public static void SetT4(String content) {
 		t4 = content;
 	}
-   
-	public static String GetT4(){
+
+	public static String GetT4() {
 		return t4;
-        }
-	
-	public static void SetT5(String content){
-                t5 = content;
-        }
+	}
 
-        public static String GetT5(){
-                return t5;
-        }
+	public static void SetT5(String content) {
+		t5 = content;
+	}
 
-	public static void SetT6(String content){
+	public static String GetT5() {
+		return t5;
+	}
+
+	public static void SetT6(String content) {
 		t6 = content;
-        }
+	}
 
-        public static String GetT6(){
+	public static String GetT6() {
 		return t6;
-   	}
+	}
 
-	public static void SetT7(String content){
+	public static void SetT7(String content) {
 		t7 = content;
-        }
+	}
 
-	public static String GetT7(){
+	public static String GetT7() {
 		return t7;
-        }
+	}
 
-	public static void SetS0(String content){
+	public static void SetS0(String content) {
 		s0 = content;
-   	}
-   
-        public static String GetS0(){
-                return s0;
-        }
+	}
 
-	public static void SetS1(String content){
+	public static String GetS0() {
+		return s0;
+	}
+
+	public static void SetS1(String content) {
 		s1 = content;
-        }
-  
-        public static String GetS1(){
- 	       return s1;
-        }
+	}
 
-	public static void SetS2(String content){
-	        s2 = content;
-        }
+	public static String GetS1() {
+		return s1;
+	}
 
-   	public static String GetS2(){
+	public static void SetS2(String content) {
+		s2 = content;
+	}
+
+	public static String GetS2() {
 		return s2;
-        }
+	}
 
-	public static void SetS3(String content){
+	public static void SetS3(String content) {
 		s3 = content;
-        }
+	}
 
-        public static String GetS3(){
-               return s3;
-        }
+	public static String GetS3() {
+		return s3;
+	}
 
-	public static void SetS4(String content){
-	        s4 = content;
-        }
-   
-        public static String GetS4(){
-	        return s4;
-        }
+	public static void SetS4(String content) {
+		s4 = content;
+	}
 
-	public static void SetS5(String content){
-	        s5 = content;
-        }
+	public static String GetS4() {
+		return s4;
+	}
 
-        public static String GetS5(){
-	       return s5;
-        }
+	public static void SetS5(String content) {
+		s5 = content;
+	}
 
-	public static void SetS6(String content){
+	public static String GetS5() {
+		return s5;
+	}
+
+	public static void SetS6(String content) {
 		s6 = content;
-        }
-   
-        public static String GetS6(){
-	        return s6;
 	}
 
-	public static void SetS7(String content){
-               s7 = content;
+	public static String GetS6() {
+		return s6;
 	}
-   
-        public static String GetS7(){
-               return s7;
-        }
 
-	public static void SetT8(String content){
-	       t8 = content;
-       }
+	public static void SetS7(String content) {
+		s7 = content;
+	}
 
-       public static String GetT8(){
-               return t8;
-       }
-	
-       public static void SetT9(String content){
-	       t9 = content;
-       }
+	public static String GetS7() {
+		return s7;
+	}
 
-       public static String GetT9(){
-               return t9;
-       }
+	public static void SetT8(String content) {
+		t8 = content;
+	}
 
-       public static void SetK0(String content){
+	public static String GetT8() {
+		return t8;
+	}
+
+	public static void SetT9(String content) {
+		t9 = content;
+	}
+
+	public static String GetT9() {
+		return t9;
+	}
+
+	public static void SetK0(String content) {
 		k0 = content;
-       }
-   
-       public static String GetK0(){
-              return k0;
-       }
+	}
 
-       public static void SetK1(String content){
-	       k1 = content;
-       }
-   
-       public static String GetK1(){
-               return k1;
-       }
+	public static String GetK0() {
+		return k0;
+	}
 
-       public static void SetGp(String content){
-               gp = content;
-       }
-   
-       public static String GetGp(){
-               return gp;
-       }
+	public static void SetK1(String content) {
+		k1 = content;
+	}
 
-       public static void SetSp(String content){
-	       sp = content;
-       }
-   
-       public static String GetSp(){
-               return sp;
-       }
+	public static String GetK1() {
+		return k1;
+	}
 
-       public static void SetFp(String content){
-               fp = content;
-       }
+	public static void SetGp(String content) {
+		gp = content;
+	}
 
-       public static String GetFp(){
-               return fp;
-       }
+	public static String GetGp() {
+		return gp;
+	}
 
-       public static void SetRa(String content){
-	       ra = content;
-       }
-  
-       public static String GetRa(){
-               return ra;
-	   }
+	public static void SetSp(String content) {
+		sp = content;
+	}
+
+	public static String GetSp() {
+		return sp;
+	}
+
+	public static void SetFp(String content) {
+		fp = content;
+	}
+
+	public static String GetFp() {
+		return fp;
+	}
+
+	public static void SetRa(String content) {
+		ra = content;
+	}
+
+	public static String GetRa() {
+		return ra;
+	}
 
 	public static void SetRegisters(String register, String content) {
 		System.out.println("Função BinaryRegisters: " + register);
@@ -451,10 +450,10 @@ public class Register {
 			break;
 		}
 	}
-	   
+
 	public static String GetRegisters(String option) {
 		System.out.println("Função GetRegisters: " + option);
-		
+
 		switch (option) {
 		case "$zero":
 		case "zero":
@@ -563,7 +562,6 @@ public class Register {
 	}
 
 	public static String BinaryRegisters(String option) {
-		System.out.println("Função BinaryRegisters: " + option);
 		switch (option) {
 		case "$zero":
 		case "zero":
@@ -667,7 +665,7 @@ public class Register {
 		}
 	}
 
-	public void registersInit(){
+	public void registersInit() {
 		String content = "000000";
 
 		SetAt(content);
@@ -699,51 +697,50 @@ public class Register {
 		SetK1(content);
 		SetGp(content);
 		SetFp(content);
-	        SetSp(content);
+		SetSp(content);
 		SetRa(content);
 		SetLo(content);
 		SetHi(content);
 	}
 
-	public void registerSaveArchive(){
+	public void registerSaveArchive() {
 		String registers = "";
 
-		registers = "Zero " + "0x" + GetZero() + "\n"
-			  +   "at " + "0x" + GetAt()   + "\n"
-			  +   "v0 " + "0x" + GetV0()   + "\n"
-			  +   "v1 " + "0x" + GetV1()   + "\n"
-			  +   "a0 " + "0x" + GetA0()   + "\n"
-			  +   "a1 " + "0x" + GetA1()   + "\n"
-			  +   "a2 " + "0x" + GetA2()   + "\n"
-			  +   "a3 " + "0x" + GetA3()   + "\n"
-			  +   "t0 " + "0x" + GetT0()   + "\n"
-			  +   "t1 " + "0x" + GetT1()   + "\n"
-			  +   "t2 " + "0x" + GetT2()   + "\n"
-			  +   "t3 " + "0x" + GetT3()   + "\n"
-			  +   "t4 " + "0x" + GetT4()   + "\n"
-		          +   "t5 " + "0x" + GetT5()   + "\n"
-			  +   "t6 " + "0x" + GetT6()   + "\n"
-			  +   "t7 " + "0x" + GetT7()   + "\n"
-			  +   "s0 " + "0x" + GetS0()   + "\n"
-			  +   "s1 " + "0x" + GetS1()   + "\n"
-			  +   "s2 " + "0x" + GetS2()   + "\n"
-			  +   "s3 " + "0x" + GetS3()   + "\n"
-			  +   "s4 " + "0x" + GetS4()   + "\n"
-			  +   "s5 " + "0x" + GetS5()   + "\n"
-			  +   "s6 " + "0x" + GetS6()   + "\n"
-			  +   "s7 " + "0x" + GetS7()   + "\n"
-			  +   "t8 " + "0x" + GetT8()   + "\n"
-			  +   "t9 " + "0x" + GetT9()   + "\n"
-			  +   "k0 " + "0x" + GetK0()   + "\n"
-			  +   "k1 " + "0x" + GetK1()   + "\n"
-			  +   "gp " + "0x" + GetGp()   + "\n"
-			  +   "sp " + "0x" + GetSp()   + "\n"
-			  +   "fp " + "0x" + GetFp()   + "\n"
-			  +   "ra " + "0x" + GetRa()   + "\n"
-			  +   "lo " + "0x" + GetLo()   + "\n"
-			  +   "hi " + "0x" + GetHi()   + "\n";
+		registers = "Zero " + "0x" + GetZero() + "\n" 
+				+ "at " + "0x" + GetAt() + "\n" 
+				+ "v0 " + "0x" + GetV0() + "\n"
+				+ "v1 " + "0x" + GetV1() + "\n" 
+				+ "a0 " + "0x" + GetA0() + "\n" 
+				+ "a1 " + "0x" + GetA1() + "\n" 
+				+ "a2 " + "0x" + GetA2() + "\n" 
+				+ "a3 " + "0x" + GetA3() + "\n" 
+				+ "t0 " + "0x" + GetT0() + "\n" 
+				+ "t1 " + "0x" + GetT1() + "\n" 
+				+ "t2 " + "0x" + GetT2() + "\n" 
+				+ "t3 " + "0x" + GetT3() + "\n" 
+				+ "t4 " + "0x" + GetT4() + "\n" 
+				+ "t5 " + "0x" + GetT5() + "\n" 
+				+ "t6 " + "0x" + GetT6() + "\n" 
+				+ "t7 " + "0x" + GetT7() + "\n" 
+				+ "s0 " + "0x" + GetS0() + "\n" 
+				+ "s1 " + "0x" + GetS1() + "\n" 
+				+ "s2 " + "0x" + GetS2() + "\n" 
+				+ "s3 " + "0x" + GetS3() + "\n" 
+				+ "s4 " + "0x" + GetS4() + "\n" 
+				+ "s5 " + "0x" + GetS5() + "\n" 
+				+ "s6 " + "0x" + GetS6() + "\n" 
+				+ "s7 " + "0x" + GetS7() + "\n" 
+				+ "t8 " + "0x" + GetT8() + "\n" 
+				+ "t9 " + "0x" + GetT9() + "\n" 
+				+ "k0 " + "0x" + GetK0() + "\n" 
+				+ "k1 " + "0x" + GetK1() + "\n" 
+				+ "gp " + "0x" + GetGp() + "\n" 
+				+ "sp " + "0x" + GetSp() + "\n" 
+				+ "fp " + "0x" + GetFp() + "\n" 
+				+ "ra " + "0x" + GetRa() + "\n" 
+				+ "lo " + "0x" + GetLo() + "\n" 
+				+ "hi " + "0x"+ GetHi() + "\n";
 
-		
 		save.write(registers);
 		save.ArchiveClose();
 	}
