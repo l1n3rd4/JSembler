@@ -341,7 +341,7 @@ public class Binario {
 		Register.SetRegisters(registers[0], aux.getContent());
 		String instruction = "";
 
-		instruction = getOpcode() + Register.BinaryRegisters(registers[0]) + Register.BinaryRegisters(registers[1])
+		instruction = getOpcode() + Register.BinaryRegisters(registers[1]) + Register.BinaryRegisters(registers[0])
 				+ getImediato();
 
 		return instruction;
