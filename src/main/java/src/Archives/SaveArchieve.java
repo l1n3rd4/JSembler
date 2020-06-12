@@ -27,10 +27,9 @@ public class SaveArchieve {
 	}
 	
 	public void write(String textInput) {
+	
 		try {
 			archive.write(textInput);
-			System.out.println(textInput);
-
 			archive.newLine();
 		} catch (IOException excecao) {
 			System.out.println("Erro de entrada/saida " + excecao);

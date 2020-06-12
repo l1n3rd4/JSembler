@@ -1,3 +1,4 @@
 - Adicionar mudança do valor dos registradores nas funções:
 -> xor, nor, ori, and, andi, or;
 - Criar documentação;
+- Criar estrutura instrução neg;

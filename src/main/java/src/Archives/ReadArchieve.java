@@ -10,25 +10,24 @@ public class ReadArchieve {
 	private File fileInput;
 	private int fileSize = 0;
 
-	
-	public ReadArchieve(String fileName) throws FileNotFoundException{
-		System.out.println("FileName: " + fileName);
+	public ReadArchieve(String fileName) throws FileNotFoundException {
 
-		if(fileName != null){
-			this.fileInput = new File(fileName);	
-		} else{
+		if (fileName != null) {
+			this.fileInput = new File(fileName);
+		} else {
 			throw new FileNotFoundException();
 		}
+
 	}
 
-	public ReadArchieve(File file){
+	public ReadArchieve(File file) {
 		fileInput = file;
 	}
-	
+
 	public File getFileInput() {
 		return fileInput;
 	}
-	
+
 	public void setFileInput(String fileName) {
 		this.fileInput = new File(fileName);
 	}
@@ -36,10 +35,12 @@ public class ReadArchieve {
 	public int getArrayLength() throws FileNotFoundException {
 		Scanner fileScanner = new Scanner(fileInput);
 		int count = 0;
+
 		while (fileScanner.hasNextLine()) {
 			count++;
 			fileScanner.nextLine();
 		}
+
 		closeFile(fileScanner);
 		return count;
 	}
@@ -47,11 +48,13 @@ public class ReadArchieve {
 	public String[] getFileInArrayFormat() throws FileNotFoundException {
 		Scanner fileScanner = new Scanner(fileInput);
 		String array[] = new String[getArrayLength()];
+		
 		while (fileScanner.hasNextLine()) {
 			String data = fileScanner.nextLine();
 			array[fileSize] = data;
 			fileSize++;
 		}
+		
 		closeFile(fileScanner);
 		return array;
 	}

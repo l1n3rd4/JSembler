@@ -178,4 +178,90 @@ public class BinarioTest {
 
 		assertEquals("00110010001100000000000000000001", binario.instruction_fetch());
 	}
+
+	@Test
+	public void ori_Test(){
+		Register.SetS0("2");
+		Register.SetS1("2");
+		String[] registers = {"s0", "s1"};
+		
+		binario.setRegisters(registers);
+		binario.setOpcode("ori");
+		binario.setName_instr("ori");
+		binario.setImediato("1");
+		
+		assertEquals("00110110001100000000000000000001", binario.instruction_fetch());	
+	}
+
+	@Test
+	public void slti_Test(){
+		Register.SetS0("2");
+		Register.SetS1("2");
+		String[] registers = {"s0","s1"};
+		
+		binario.setRegisters(registers);
+		binario.setOpcode("slti");
+		binario.setName_instr("slti");
+		binario.setImediato("1");
+
+		assertEquals("00101010001100000000000000000001", binario.instruction_fetch());
+	}
+
+	@Test
+	public void beq_Test(){
+		Register.SetS0("2");
+		Register.SetS1("2");
+		String[] registers = {"s0", "s1"};
+
+		binario.setRegisters(registers);
+		binario.setOpcode("beq");
+		binario.setName_instr("beq");
+		binario.setImediato("4");
+
+		assertEquals("00010010001100000000000000000100", binario.instruction_fetch());
+	}
+
+	@Test
+	public void bne_Test(){
+		Register.SetS0("2");
+		Register.SetS1("2");
+		String[] registers ={"s0", "s1"};
+		binario.setRegisters(registers);
+
+		binario.setOpcode("bne");
+		binario.setName_instr("bne");
+		binario.setImediato("4");
+
+		assertEquals("00010110001100000000000000000100", binario.instruction_fetch());
+	}
+
+	@Test
+	public void lw_Test(){
+		Register.SetS0("2");
+		Register.SetS1("2");
+		String[] registers = {"s0", "s1"};
+		binario.setRegisters(registers);
+
+		binario.setOpcode("lw");
+		binario.setName_instr("lw");
+		binario.setImediato("4");
+
+		assertEquals("10001110001100000000000000000100", binario.instruction_fetch());
+
+	}
+
+	@Test
+	public void xor_Test(){
+		Register.SetS0("2");
+		Register.SetS1("2");
+		Register.SetS2("2");
+		String[] registers = {"s0","s1","s2"};
+
+		binario.setRegisters(registers);
+		binario.setOpcode("xor");
+		binario.setFunct("xor");
+		binario.setName_instr("xor");
+
+		assertEquals("00000010001100101000000000100110", binario.instruction_fetch());
+	}
 }
