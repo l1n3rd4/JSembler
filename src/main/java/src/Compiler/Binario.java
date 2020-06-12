@@ -210,6 +210,8 @@ public class Binario {
 			return nor_instr();
 		case "slt":
 			return slt_instr();
+		case "neg":
+			return neg_instr();
 		default:
 			System.out.println("instrucão " + getName_instr() + " não encontrada!");
 			return "q";
@@ -300,9 +302,14 @@ public class Binario {
 		return instruction;
 	}
 
-	// public void neg_instr(){
+	public String neg_instr() {
+		String instruction = "";
 
-	// }
+		instruction = getOpcode() + Register.BinaryRegisters(registers[1]) + Register.BinaryRegisters(registers[0])
+				+ Register.BinaryRegisters("0") + getShamt() + getFunct();
+
+		return instruction;
+	}
 
 	public String slt_instr() {
 		String result;

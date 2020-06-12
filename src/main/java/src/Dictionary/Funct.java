@@ -55,6 +55,8 @@ public class Funct {
 			return "00";
 		case "srl":
 			return "02";
+		case "neg":
+		    return "7";
 		}
 		return null;
 	}

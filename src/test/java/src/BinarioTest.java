@@ -7,6 +7,7 @@ import src.main.java.src.Memory.MainMemory;
 import java.lang.Exception;
 import java.io.FileNotFoundException;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 public class BinarioTest {
@@ -178,7 +179,7 @@ public class BinarioTest {
 
 		assertEquals("00110010001100000000000000000001", binario.instruction_fetch());
 	}
-	
+
 	@Test
 	public void ori_Test(){
 		Register.SetS0("2");
@@ -264,4 +265,7 @@ public class BinarioTest {
 
 		assertEquals("00000010001100101000000000100110", binario.instruction_fetch());
 	}
+
+//	@Test
+//	public void nor
 }

@@ -1,7 +1,7 @@
 package src.main.java.src.Dictionary;
 
 public class Opcode {
-	
+
 	public static String opcode(String code) {
 		switch (code) {
 		case "ori":
@@ -47,11 +47,12 @@ public class Opcode {
 		case "slt":
 			return "000000";
 		case "srl":
-	    		return "000000";
+			return "000000";
+		case "neg":
+		    return "000000";
 		default:
-			return null;			
+			return null;
 		}
 	}
 
 }
-
