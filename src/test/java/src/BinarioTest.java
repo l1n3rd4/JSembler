@@ -178,7 +178,12 @@ public class BinarioTest {
 
 		assertEquals("00110010001100000000000000000001", binario.instruction_fetch());
 	}
+<<<<<<< HEAD
 
+=======
+	
+	
+>>>>>>> 95f1938a252b39d2caa6d7d1d46420cd51632897
 	@Test
 	public void ori_Test(){
 		Register.SetS0("2");
@@ -262,6 +267,13 @@ public class BinarioTest {
 		binario.setFunct("xor");
 		binario.setName_instr("xor");
 
+<<<<<<< HEAD
 		assertEquals("00000010001100101000000000100110", binario.instruction_fetch());
 	}
 }
+=======
+		assertEquals("", binario.instruction_fetch());
+	}
+
+}
+>>>>>>> 95f1938a252b39d2caa6d7d1d46420cd51632897
