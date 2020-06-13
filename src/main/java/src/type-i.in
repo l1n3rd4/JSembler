@@ -19,3 +19,5 @@ slti s0, s1, 1
 beq s0, s1, 4
 bne s0, s1, 4
 neg s0, s1
+srl s0, s1, 1
+sll s0, s1, 1

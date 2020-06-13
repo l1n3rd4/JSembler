@@ -280,4 +280,35 @@ public class BinarioTest {
 
 		assertEquals("00000010001100101000000000100111", binario.instruction_fetch());
 	}
+
+	@Test
+	public void sll_Test(){
+		Register.SetS0("2");
+		Register.SetS1("2");
+		String[] registers = {"s0", "s1"};
+		binario.setShamt("1");
+
+		binario.setRegisters(registers);
+		binario.setOpcode("sll");
+		binario.setFunct("sll");
+		binario.setName_instr("sll");
+
+		assertEquals("00000000000100011000000001000000", binario.instruction_fetch());
+	}
+
+	@Test 
+	public void srl_Test(){
+		Register.SetS0("2");
+		Register.SetS1("2");
+		String[] registers = {"s0", "s1"};
+		binario.setRegisters(registers);
+
+		binario.setOpcode("srl");
+		binario.setFunct("srl");
+		binario.setName_instr("srl");
+		binario.setShamt("1");
+
+		assertEquals("00000000000100011000000001000010", binario.instruction_fetch());
+	}
+ 
 }

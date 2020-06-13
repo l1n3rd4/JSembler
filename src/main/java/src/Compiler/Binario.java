@@ -28,6 +28,20 @@ public class Binario {
 		return lineAddress;
 	}
 
+	public void setShamt(String shamt){
+		this.shamt = "";
+		shamt = Integer.toBinaryString(Integer.parseInt(shamt));
+
+		if(shamt.length() == 5){
+			this.shamt = shamt;
+		} else{
+			for(int i = 0; i < (5 - shamt.length()); i++){
+				this.shamt += "0";
+			}
+			this.shamt += shamt;
+		}
+	}
+
 	public String getShamt() {
 		return shamt;
 	}
@@ -210,6 +224,10 @@ public class Binario {
 			return nor_instr();
 		case "slt":
 			return slt_instr();
+		case "sll":
+			return sll_instr();
+		case "srl":
+			return srl_instr();
 		case "neg":
 			return neg_instr();
 		default:
@@ -385,7 +403,7 @@ public class Binario {
 		String instruction = "";
 
 		instruction = getOpcode() + Register.BinaryRegisters(registers[0]) + Register.BinaryRegisters("0")
-				+ Register.BinaryRegisters("0") + shamt + getFunct();
+				+ Register.BinaryRegisters("0") + getShamt() + getFunct();
 
 		System.out.println("jr inst: " + instruction);
 		return instruction;
@@ -418,6 +436,26 @@ public class Binario {
 			Register.SetRegisters(registers[0], "0");
 		}
 		return Instruction_I_Type();
+	}
+
+	public String sll_instr(){
+		String instruction = "";
+
+		instruction = getOpcode() + Register.BinaryRegisters("0") + Register.BinaryRegisters(registers[1]) 
+			+ Register.BinaryRegisters(registers[0]) + getShamt() + getFunct();
+
+		System.out.println("retorno: " + instruction);
+		return instruction;
+	}
+
+	public String srl_instr(){
+		String instruction = "";
+
+		instruction = getOpcode() + Register.BinaryRegisters("0") + Register.BinaryRegisters(registers[1])
+			+ Register.BinaryRegisters(registers[0]) + getShamt() + getFunct();
+		
+		System.out.println("retorno: " + instruction);
+		return instruction;
 	}
 
 	public String or_instr() {

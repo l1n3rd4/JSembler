@@ -84,6 +84,8 @@ public class CompilerBinary {
 						binario.setImediato(instrucao[j]);
 					} else if (InstructionsType == "J") {
 						binario.setAddress(instrucao[j]);
+					} else {
+						binario.setShamt(instrucao[j]);
 					}
 
 				}
