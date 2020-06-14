@@ -69,8 +69,7 @@ public class CompilerBinary {
 									+ Integer.parseInt(Register.GetRegisters(buffer[1]));
 							
 							binario.setLineAddress(endereco);
-							binario.setImediato(buffer[0]);
-							binario.setAddress(Integer.toHexString(endereco));
+							binario.setImediato(buffer[0]);	
 							instr_access_memory = false;
 						} else {
 							regisGeneric[contRegisters] = instrucao[j];

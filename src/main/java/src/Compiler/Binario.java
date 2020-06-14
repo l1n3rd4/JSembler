@@ -414,27 +414,21 @@ public class Binario {
 	}
 
 	public String and_instr() {
-		int register1 = Integer.parseInt(Register.GetRegisters(registers[1]));
-		int register2 = Integer.parseInt(Register.GetRegisters(registers[2]));
+		int reg1 =  Integer.parseInt(Register.GetRegisters(registers[1]));
+		int reg2 =  Integer.parseInt(Register.GetRegisters(registers[2]));
 
-		if (register1 == register2) {
-			Register.SetRegisters(registers[0], "1");
-		} else {
-			Register.SetRegisters(registers[0], "0");
-		}
-
+		int result = (reg1 & reg2);	
+		Register.SetRegisters(registers[0], Integer.toString(result));
+		
 		return Instruction_R_Type();
 	}
 
 	public String andi_instr() {
-		String register = Register.GetRegisters(registers[1]);
-		String imediato = Integer.toString(Integer.parseInt(getImediato(), 2));
+		int register = Integer.parseInt(Register.GetRegisters(registers[1]));
+		int imediato = Integer.parseInt(getImediato(), 2);
 
-		if (register.equals(imediato)) {
-			Register.SetRegisters(registers[0], "1");
-		} else {
-			Register.SetRegisters(registers[0], "0");
-		}
+		int result = (register & imediato);
+		Register.SetRegisters(registers[0], Integer.toString(result));
 		return Instruction_I_Type();
 	}
 
@@ -459,10 +453,20 @@ public class Binario {
 	}
 
 	public String or_instr() {
+		int register1 = Integer.parseInt(Register.GetRegisters(registers[1]));
+		int register2 = Integer.parseInt(Register.GetRegisters(registers[2]));
+
+		int result = (register1 | register2);
+		Register.SetRegisters(registers[0], Integer.toString(result));
+
 		return Instruction_R_Type();
 	}
 
 	public String ori_instr() {
+		int register = Integer.parseInt(Register.GetRegisters(registers[1]));
+		int result = (register | Integer.parseInt(getImediato(), 2));
+
+		Register.SetRegisters(registers[0], Integer.toString(result));
 		return Instruction_I_Type();
 	}
 
