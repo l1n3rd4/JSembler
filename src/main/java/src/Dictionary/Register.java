@@ -3,6 +3,7 @@ package src.main.java.src.Dictionary;
 import src.main.java.src.Archives.SaveArchieve;
 
 public class Register {
+	// Classe usada para controle e retorno de registradores
 	private static String zero = "000000";
 	private static String at;
 	private static String v0;
