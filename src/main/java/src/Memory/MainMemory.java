@@ -10,14 +10,16 @@ public class MainMemory{
 	
 	static ReadArchieve read;
 	static SaveArchieve save;
-
+	//Metodo memoria principal instanciando atributos de leitura e escrita 
+	//chamando metodo memoria principal inicial
 	public MainMemory() throws FileNotFoundException{
 		read = new ReadArchieve("memory.out");
 		save = new SaveArchieve("memory.out");
 		MainMemoryInit();
 	}
 	
-	
+	//metodo publico e estatico iniciando memoria utilizando atributo auxiliar 
+	//
 	public static void startMemory() throws FileNotFoundException{
 		MemoryLine aux;
 		memory_line = new MemoryLine[MEMORY_SIZE];

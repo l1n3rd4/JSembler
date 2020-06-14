@@ -27,7 +27,9 @@ public class Binario {
 	public int getLineAddress() {
 		return lineAddress;
 	}
-	//Setter 
+	//Setter Shamt utilizando condicao de tamanho, se o shamt nao for de tamanho 5 
+	//Se o indice do laço de repeticao for menor que o tamanho do shamt subtraido por cinco 
+	//Preencher o Shamt com "0" e settar após
 	public void setShamt(String shamt){
 		this.shamt = "";
 		shamt = Integer.toBinaryString(Integer.parseInt(shamt));
@@ -78,7 +80,7 @@ public class Binario {
 	public String getImediato() {
 		return imediato;
 	}
-	//
+	//Metodo privado para retorna atributo em estrutura de instrução do tipo R
 	private String Instruction_R_Type() {
 		String retorno;
 
@@ -90,7 +92,7 @@ public class Binario {
 		System.out.println("String retorno: " + retorno);
 		return retorno;
 	}
-
+	//Metodo privado para retorna atributo em estrutura de instrução do tipo I
 	private String Instruction_I_Type() {
 		String retorno;
 		retorno = getOpcode() + Register.BinaryRegisters(registers[1]) + Register.BinaryRegisters(registers[0])
@@ -99,7 +101,7 @@ public class Binario {
 		System.out.println("String retorno: " + retorno);
 		return retorno;
 	}
-
+	//Metodo privado para retorna atributo em estrutura de instrução do tipo J
 	private String Instruction_J_Type() {
 		String retorno;
 		retorno = getOpcode() + getAddress();
@@ -107,19 +109,19 @@ public class Binario {
 		System.out.println("String de saída: " + retorno);
 		return retorno;
 	}
-
+	//Obter tipo 
 	public String getType() {
 		return type;
 	}
-
+	//Setter de tipo
 	public void setType(String type) {
 		this.type = type;
 	}
-
+	//Obter Opcode
 	public String getOpcode() {
 		return opcode;
 	}
-
+	//Setter do Opcode utilizando atributo auxiliar e condicionamento para identificação correta do Opcode
 	public void setOpcode(String opcode) {
 		String aux = Opcode.opcode(opcode);
 		System.out.println("Codigo Op: " + aux);
@@ -135,15 +137,15 @@ public class Binario {
 			this.opcode += aux;
 		}
 	}
-
+	//Obter registrador
 	public String[] getRegisters() {
 		return registers;
 	}
-
+	//Obter endereco
 	public String getAddress() {
 		return address;
 	}
-
+	//Setter do endereco utilizando objeto para identificação correto de endereco e tratamento
 	public void setAddress(String address) {
 		String endereco = Integer.toBinaryString(Integer.parseInt(address));
 		System.out.println("endereco dentro da função set" + endereco);
@@ -161,11 +163,11 @@ public class Binario {
 		}
 
 	}
-
+	//obter função
 	public String getFunct() {
 		return funct;
 	}
-
+	//Setter da função utilizando objeto para identificação do atributo e tratamento 
 	public void setFunct(String funct) {
 		String bufferfunct = Integer.toBinaryString(Integer.parseInt(Funct.funct(funct), 16));
 
@@ -183,7 +185,7 @@ public class Binario {
 
 		System.out.println("Setfunct: " + this.funct);
 	}
-
+	//Metodo para buscar e comparar instrução para utilizar metodos corretos 
 	public String instruction_fetch() {
 		switch (getName_instr()) {
 		case "ori":
@@ -237,7 +239,9 @@ public class Binario {
 			return "q";
 		}
 	}
-
+	//Metodo utilizado para atributo resultado receber registradores 1 e 2 da collections
+	//resultado recebe a soma dos registradores e setar registrador 0 com o resultado
+	//Retornando a intrução tipo R 
 	public String add_instr() {
 		int result;
 		int register2 = Integer.parseInt(Register.GetRegisters(registers[1]));
