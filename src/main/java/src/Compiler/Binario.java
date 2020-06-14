@@ -16,18 +16,18 @@ public class Binario {
 	private String[] registers;
 	private String funct = "";
 	private int lineAddress;
-
+	//Construtor
 	public Binario() {
 	}
-
+	//Setter linha de endereço
 	public void setLineAddress(int address) {
 		this.lineAddress = address;
 	}
-
+	//getter linha de endereço
 	public int getLineAddress() {
 		return lineAddress;
 	}
-
+	//Setter 
 	public void setShamt(String shamt){
 		this.shamt = "";
 		shamt = Integer.toBinaryString(Integer.parseInt(shamt));
@@ -41,23 +41,25 @@ public class Binario {
 			this.shamt += shamt;
 		}
 	}
-
+	//Obter o Shamt
 	public String getShamt() {
 		return shamt;
 	}
-
+	//Setter o nome da instrução 
 	public void setName_instr(String name_instr) {
 		this.name_instr = name_instr;
 	}
-
+	//Obter o nome da instrução
 	public String getName_instr() {
 		return name_instr;
 	}
-
+	//Setter do registradores passando como paramentro vetor de String
 	public void setRegisters(String[] registers) {
 		this.registers = registers;
 	}
-
+	//Setter do Imediato que utiliza um atributo que recebe o tamanho do parametro passado no metodo
+	//O setter acontecerá caso o atributo hexadecimal for tamanho 16
+	//Senão é utilizado um laço de repetição para incluir no imediato o 0 e acrescentando no hexa 
 	public void setImediato(String imediato) {
 		String hexa;
 		this.imediato = "";
@@ -72,11 +74,11 @@ public class Binario {
 			this.imediato += hexa;
 		}
 	}
-
+	//Obter imediato
 	public String getImediato() {
 		return imediato;
 	}
-
+	//
 	private String Instruction_R_Type() {
 		String retorno;
 
