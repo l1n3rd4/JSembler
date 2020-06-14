@@ -6,10 +6,10 @@ import java.nio.file.ClosedFileSystemException;
 import java.util.Scanner;
 
 public class ReadArchieve {
-
+	//Atributos para manipulacao de binario e tamanho
 	private File fileInput;
 	private int fileSize = 0;
-
+	//Verificar se existe palavra no arquivo em atributo passado como parametro utilizando throws
 	public ReadArchieve(String fileName) throws FileNotFoundException {
 
 		if (fileName != null) {
@@ -19,19 +19,19 @@ public class ReadArchieve {
 		}
 
 	}
-
+	//Passar para file o arquivo de entrada para leitura  
 	public ReadArchieve(File file) {
 		fileInput = file;
 	}
-
+	//Retorna o arquivo de entrada
 	public File getFileInput() {
 		return fileInput;
 	}
-
+	//Setar arquivo de entrada utilizando o atributo passado como parametro
 	public void setFileInput(String fileName) {
 		this.fileInput = new File(fileName);
 	}
-
+	//Obter o tamanho do arquivo em array buscando por collection
 	public int getArrayLength() throws FileNotFoundException {
 		Scanner fileScanner = new Scanner(fileInput);
 		int count = 0;
@@ -44,7 +44,7 @@ public class ReadArchieve {
 		closeFile(fileScanner);
 		return count;
 	}
-
+	//Obter arquivo em formato de array utilizando metodo has collection
 	public String[] getFileInArrayFormat() throws FileNotFoundException {
 		Scanner fileScanner = new Scanner(fileInput);
 		String array[] = new String[getArrayLength()];
@@ -58,7 +58,7 @@ public class ReadArchieve {
 		closeFile(fileScanner);
 		return array;
 	}
-
+	//Fechar o arquivo 
 	public void closeFile(Scanner file) throws ClosedFileSystemException {
 		file.close();
 	}
