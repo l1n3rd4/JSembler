@@ -32,9 +32,8 @@ public class CompilerBinary {
 
 		String[] regisFinal;
 		String InstructionsType = "";
-		int contRegisters = 0;
-
-		System.out.println("Memory test: " + MainMemory.getMemorySlot(1024).getAddress());
+		int contRegisters = 0;	
+		
 		for (int i = 0; i < read.getArrayLength(); i++) {
 			binario.restartValues();
 			System.out.println("Linha --> " + code[i]);

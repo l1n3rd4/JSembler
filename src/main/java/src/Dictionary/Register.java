@@ -739,7 +739,7 @@ public class Register {
 				+ "fp " + "0x" + GetFp() + "\n" 
 				+ "ra " + "0x" + GetRa() + "\n" 
 				+ "lo " + "0x" + GetLo() + "\n" 
-				+ "hi " + "0x"+ GetHi() + "\n";
+				+ "hi " + "0x" + GetHi() + "\n";
 
 		save.write(registers);
 		save.ArchiveClose();

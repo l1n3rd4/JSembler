@@ -6,6 +6,7 @@ import src.main.java.src.Dictionary.Register;
 import src.main.java.src.Memory.MainMemory;
 import java.lang.Exception;
 import java.io.FileNotFoundException;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -148,6 +149,7 @@ public class BinarioTest {
 		binario.setName_instr("jal");
 		binario.setAddress("1024");
 
+	        assertEquals("00001100000000000000010000000000", binario.instruction_fetch());
 		assertEquals("00001100000000000000010000000000", binario.instruction_fetch());
 	}
 
