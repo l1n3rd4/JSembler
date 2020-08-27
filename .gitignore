@@ -29,3 +29,6 @@ build
 hs_err_pid*
 **/.gitignore
 **/*.gitignore
+
+# Example of output files
+ *.out
