@@ -45,15 +45,15 @@ public class ReadArchieve {
 	}
 
 	public int getArrayLength() throws FileNotFoundException {
-		Scanner fileScanner = new Scanner(fileInput);
+		Scanner fileLength = new Scanner(fileInput);
 		int count = 0;
 
-		while (fileScanner.hasNextLine()) {
+		while (fileLength.hasNextLine()) {
 			count++;
-			fileScanner.nextLine();
+			fileLength.nextLine();
 		}
 
-		closeFile(fileScanner);
+		fileLength.close();
 		return count;
 	}
 
@@ -65,12 +65,11 @@ public class ReadArchieve {
 			array[fileSize] = data;
 			fileSize++;
 		}
-		
-		closeFile(fileScanner);
+
 		return array;
 	}
 
-	public void closeFile(Scanner file) throws ClosedFileSystemException {
-		file.close();
+	public void closeFile() throws ClosedFileSystemException {
+		fileScanner.close();
 	}
 }
