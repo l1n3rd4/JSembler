@@ -1,6 +1,7 @@
 package src.main.java.src.Compiler;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import src.main.java.src.Archives.ReadArchieve;
 import src.main.java.src.Archives.SaveArchieve;
@@ -10,7 +11,7 @@ import src.main.java.src.Memory.MainMemory;
 
 public class CompilerBinary {
 
-	public void TransformBinary(String file_read, String file_save) throws FileNotFoundException {
+	public void TransformBinary(String file_read, String file_save) throws FileNotFoundException, IOException {
 		MainMemory memory = new MainMemory();
 		MainMemory.startMemory();
 
@@ -109,6 +110,7 @@ public class CompilerBinary {
 		register.registerSaveArchive();
 		MainMemory.MainMemorySave();
 		save.ArchiveClose();
+		read.closeFile();
 	}
 
 }

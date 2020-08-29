@@ -29,6 +29,8 @@ public class App {
 		} catch (FileNotFoundException error) {
 			System.out.println(error.toString());
 			error.printStackTrace();
+		} catch (Exception e){
+			System.out.println(e.getMessage());
 		}
 	
 	}

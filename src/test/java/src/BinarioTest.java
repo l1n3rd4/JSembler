@@ -4,6 +4,8 @@ import src.main.java.src.Compiler.Binario;
 import src.main.java.src.Compiler.CompilerBinary;
 import src.main.java.src.Dictionary.Register;
 import src.main.java.src.Memory.MainMemory;
+
+import java.io.IOException;
 import java.lang.Exception;
 import java.io.FileNotFoundException;
 
@@ -27,7 +29,7 @@ public class BinarioTest {
 	}
 
 	@Test
-	public void Sw_Test() throws FileNotFoundException {
+	public void Sw_Test() throws FileNotFoundException, IOException {
 		MainMemory memory = new MainMemory();
 		MainMemory.startMemory();
 

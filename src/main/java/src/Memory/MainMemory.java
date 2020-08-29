@@ -1,6 +1,8 @@
 package src.main.java.src.Memory;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import src.main.java.src.Archives.ReadArchieve;
 import src.main.java.src.Archives.SaveArchieve;
 
@@ -12,7 +14,7 @@ public class MainMemory{
 	static SaveArchieve save;
 	//Metodo memoria principal instanciando atributos de leitura e escrita 
 	//chamando metodo memoria principal inicial
-	public MainMemory() throws FileNotFoundException{
+	public MainMemory() throws FileNotFoundException, IOException {
 		read = new ReadArchieve("memory.out");
 		save = new SaveArchieve("memory.out");
 		MainMemoryInit();
