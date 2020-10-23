@@ -37,36 +37,48 @@ public class MainMemory{
 		} 
 	}
 
-	public static void MainMemoryInit(){
-		int linha1 = 0;
-		String linha = "";
-		
-		for(int i = 0; i < MEMORY_SIZE; i++){
-			if(i <= 15){
-				linha = "0x0" + Integer.toHexString(linha1) + " " + "0x" + "00000000";
-			} else {
-				linha = "0x" + Integer.toHexString(linha1)  + " " + "0x" + "00000000"; 
+	public static void MainMemoryInit() throws FileNotFoundException, IOException{
+		try {
+			int linha1 = 0;
+			String linha = "";
+
+			for (int i = 0; i < MEMORY_SIZE; i++) {
+				if (i <= 15) {
+					linha = "0x0" + Integer.toHexString(linha1) + " " + "0x" + "00000000";
+				} else {
+					linha = "0x" + Integer.toHexString(linha1) + " " + "0x" + "00000000";
+				}
+
+				save.write(linha);
+				linha1 += 16;
 			}
 
-		save.write(linha);
-			linha1 += 16;
+			save.ArchiveClose();
+		} catch (FileNotFoundException e){
+			throw e;
+		} catch (IOException e){
+			throw e;
 		}
-		
-		save.ArchiveClose();
 	}
 
-	public static void MainMemorySave(){
-		String linha = "";
-		save = new SaveArchieve("memory.out");
+	public static void MainMemorySave() throws IOException, FileNotFoundException {
+		try {
+			String linha = "";
+			save = new SaveArchieve("memory.out");
 
-		for(int i = 0; i < MEMORY_SIZE; i++){
-			linha = memory_line[i].getAddress() + " " + memory_line[i].getContent();
-			save.write(linha);
+			for (int i = 0; i < MEMORY_SIZE; i++) {
+				linha = memory_line[i].getAddress() + " " + memory_line[i].getContent();
+				save.write(linha);
+			}
+			save.ArchiveClose();
+
+		}catch (FileNotFoundException e){
+			throw e;
+		} catch (IOException e){
+			throw e;
 		}
-
-		save.ArchiveClose();
 	}
-	
+
 	public static void setMemorySlot(int NumberSlot, String data){
 		memory_line[indexMemoryArray(NumberSlot)].setContent(data);		
 	}	

@@ -2,6 +2,7 @@ package src.main.java.src.Archives;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.nio.file.ClosedFileSystemException;
 import java.util.Scanner;
 
@@ -10,12 +11,12 @@ public class ReadArchieve {
 	private int fileSize = 0;
 	private Scanner fileScanner;
 
-	public ReadArchieve(String fileName) throws FileNotFoundException {
+	public ReadArchieve(String fileName) throws FileNotFoundException,IOException {
 		setFileInput(fileName);
 		setScannerFile(fileInput);
 	}
 
-	public ReadArchieve(File file) throws FileNotFoundException {
+	public ReadArchieve(File file) throws FileNotFoundException, IOException {
 		if (file != null) {
 			fileInput = file;
 			setScannerFile(file);
@@ -24,9 +25,9 @@ public class ReadArchieve {
 		}
 	}
 
-	public void setScannerFile(File file) throws FileNotFoundException{
+	public void setScannerFile(File file) throws FileNotFoundException, IOException{
 		 if(file != null){
-			 fileScanner = new Scanner(fileInput);
+			 fileScanner = new Scanner(file);
 		 } else {
 		 	throw new FileNotFoundException();
 		 }
@@ -36,7 +37,7 @@ public class ReadArchieve {
 		return fileInput;
 	}
 
-	public void setFileInput(String fileName) throws FileNotFoundException{
+	public void setFileInput(String fileName) throws FileNotFoundException, IOException {
 		if (fileName != null) {
 			this.fileInput = new File(fileName);
 		} else {

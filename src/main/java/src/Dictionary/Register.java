@@ -2,6 +2,8 @@ package src.main.java.src.Dictionary;
 
 import src.main.java.src.Archives.SaveArchieve;
 
+import java.io.IOException;
+
 public class Register {
 	private static String zero = "000000";
 	private static String at;
@@ -40,7 +42,7 @@ public class Register {
 
 	private SaveArchieve save;
 	
-	public Register() {
+	public Register() throws IOException {
 		save = new SaveArchieve("registers.out");
 		registersInit();
 	}
@@ -703,45 +705,49 @@ public class Register {
 		SetHi(content);
 	}
 
-	public void registerSaveArchive() {
-		String registers = "";
+	public void registerSaveArchive() throws IOException{
+		try {
+			String registers = "";
 
-		registers = "Zero " + "0x" + GetZero() + "\n" 
-				+ "at " + "0x" + GetAt() + "\n" 
-				+ "v0 " + "0x" + GetV0() + "\n"
-				+ "v1 " + "0x" + GetV1() + "\n" 
-				+ "a0 " + "0x" + GetA0() + "\n" 
-				+ "a1 " + "0x" + GetA1() + "\n" 
-				+ "a2 " + "0x" + GetA2() + "\n" 
-				+ "a3 " + "0x" + GetA3() + "\n" 
-				+ "t0 " + "0x" + GetT0() + "\n" 
-				+ "t1 " + "0x" + GetT1() + "\n" 
-				+ "t2 " + "0x" + GetT2() + "\n" 
-				+ "t3 " + "0x" + GetT3() + "\n" 
-				+ "t4 " + "0x" + GetT4() + "\n" 
-				+ "t5 " + "0x" + GetT5() + "\n" 
-				+ "t6 " + "0x" + GetT6() + "\n" 
-				+ "t7 " + "0x" + GetT7() + "\n" 
-				+ "s0 " + "0x" + GetS0() + "\n" 
-				+ "s1 " + "0x" + GetS1() + "\n" 
-				+ "s2 " + "0x" + GetS2() + "\n" 
-				+ "s3 " + "0x" + GetS3() + "\n" 
-				+ "s4 " + "0x" + GetS4() + "\n" 
-				+ "s5 " + "0x" + GetS5() + "\n" 
-				+ "s6 " + "0x" + GetS6() + "\n" 
-				+ "s7 " + "0x" + GetS7() + "\n" 
-				+ "t8 " + "0x" + GetT8() + "\n" 
-				+ "t9 " + "0x" + GetT9() + "\n" 
-				+ "k0 " + "0x" + GetK0() + "\n" 
-				+ "k1 " + "0x" + GetK1() + "\n" 
-				+ "gp " + "0x" + GetGp() + "\n" 
-				+ "sp " + "0x" + GetSp() + "\n" 
-				+ "fp " + "0x" + GetFp() + "\n" 
-				+ "ra " + "0x" + GetRa() + "\n" 
-				+ "lo " + "0x" + GetLo() + "\n" 
-				+ "hi " + "0x" + GetHi() + "\n";
+			registers = "Zero " + "0x" + GetZero() + "\n"
+					+ "at " + "0x" + GetAt() + "\n"
+					+ "v0 " + "0x" + GetV0() + "\n"
+					+ "v1 " + "0x" + GetV1() + "\n"
+					+ "a0 " + "0x" + GetA0() + "\n"
+					+ "a1 " + "0x" + GetA1() + "\n"
+					+ "a2 " + "0x" + GetA2() + "\n"
+					+ "a3 " + "0x" + GetA3() + "\n"
+					+ "t0 " + "0x" + GetT0() + "\n"
+					+ "t1 " + "0x" + GetT1() + "\n"
+					+ "t2 " + "0x" + GetT2() + "\n"
+					+ "t3 " + "0x" + GetT3() + "\n"
+					+ "t4 " + "0x" + GetT4() + "\n"
+					+ "t5 " + "0x" + GetT5() + "\n"
+					+ "t6 " + "0x" + GetT6() + "\n"
+					+ "t7 " + "0x" + GetT7() + "\n"
+					+ "s0 " + "0x" + GetS0() + "\n"
+					+ "s1 " + "0x" + GetS1() + "\n"
+					+ "s2 " + "0x" + GetS2() + "\n"
+					+ "s3 " + "0x" + GetS3() + "\n"
+					+ "s4 " + "0x" + GetS4() + "\n"
+					+ "s5 " + "0x" + GetS5() + "\n"
+					+ "s6 " + "0x" + GetS6() + "\n"
+					+ "s7 " + "0x" + GetS7() + "\n"
+					+ "t8 " + "0x" + GetT8() + "\n"
+					+ "t9 " + "0x" + GetT9() + "\n"
+					+ "k0 " + "0x" + GetK0() + "\n"
+					+ "k1 " + "0x" + GetK1() + "\n"
+					+ "gp " + "0x" + GetGp() + "\n"
+					+ "sp " + "0x" + GetSp() + "\n"
+					+ "fp " + "0x" + GetFp() + "\n"
+					+ "ra " + "0x" + GetRa() + "\n"
+					+ "lo " + "0x" + GetLo() + "\n"
+					+ "hi " + "0x" + GetHi() + "\n";
 
-		save.write(registers);
-		save.ArchiveClose();
+			save.write(registers);
+			save.ArchiveClose();
+		} catch (IOException e){
+			throw e;
+		}
 	}
 }

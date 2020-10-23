@@ -6,14 +6,14 @@ public class SaveArchieve {
 	private BufferedWriter archive;
 	private String FileOutput;
 
-	public SaveArchieve(String FileOutput){
+	public SaveArchieve(String FileOutput) throws FileNotFoundException, IOException{
 		try {
 			this.FileOutput = FileOutput;
 			archive = new BufferedWriter(new FileWriter(FileOutput));
-		} catch (FileNotFoundException excecao) {
-			System.out.println("Arquivo nao encontrado");
-		} catch (IOException excecao) {
-			System.out.println("Erro na abertura do arquivo de escrita: " + excecao);
+		} catch (FileNotFoundException e) {
+			throw e;
+		} catch (IOException e) {
+			throw e;
 		}
 	}
 
@@ -25,20 +25,22 @@ public class SaveArchieve {
 		this.FileOutput = FileOutput;
 	}
 
-	public void write(String textInput) {
+	public void write(String textInput) throws IOException{
 		try {
 			archive.write(textInput);
 			archive.newLine();
-		} catch (IOException excecao) {
-			System.out.println("Erro de entrada/saida " + excecao);
+		} catch (IOException e) {
+			throw e;
 		}
 	}
 
-	public void ArchiveClose() {
+	public void ArchiveClose() throws IOException{
 		try {
-			archive.close();
-		} catch (IOException excecao) {
-			System.out.println("Erro no fechamento do arquivo de escrita: " + excecao);
+			if(archive != null){
+				archive.close();
+			}
+		} catch (IOException e) {     // IOException excecao
+			throw e;
 		}
 	}
 }
