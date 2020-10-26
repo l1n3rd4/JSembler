@@ -1,15 +1,20 @@
-# Prerequisites
+# JSembler
+## What Is This Project About?
+This project simulates the execution of an assembly code in the MIPs machine. 
+
+## Prerequisites
 - [ ] 1. Install [java] version `1.8.0_121`
 - [ ] 2. Install Gradle version `6.4.1`
 
-# Installing Java
-## Windows
+## Installing Java
+### Windows
+
 ```
 Choose windows x64: 
 https://www.oracle.com/java/technologies/javase-jdk8-downloads.html
 ```
 
-# Installing Gradle
+## Installing Gradle
 - [ ] -> MacOS
 
 ```brew install gradle```
@@ -18,6 +23,7 @@ https://www.oracle.com/java/technologies/javase-jdk8-downloads.html
 
 -> Debian based distros
 ```- sudo apt-get install gradle```
+
 -> Arch based distros
 ```- sudo pacman -S gradle```
 
@@ -36,3 +42,5 @@ gradle clean build
 java -jar JSembler.jar [input-file][output-file]
 ```
 
+## License
+This project is licensed under the MIT license.
