@@ -1,40 +1,38 @@
-# Pré-requisitos
-- [ ] 1. Instalar o [java] na versão `1.8.0_121`
-- [ ] 2. Instalar Gradle versão `6.4.1`
+# Prerequisites
+- [ ] 1. Install [java] version `1.8.0_121`
+- [ ] 2. Install Gradle version `6.4.1`
 
-# Instalando Java
+# Installing Java
 ## Windows
 ```
-Escolha windows x64: 
+Choose windows x64: 
 https://www.oracle.com/java/technologies/javase-jdk8-downloads.html
 ```
 
-# Instalando Gradle
+# Installing Gradle
 - [ ] -> MacOS
 
 ```brew install gradle```
 - [ ] -> Linux
 
-```
--> Debian based distros
--  sudo apt-get install gradle
--> Arch based distros
-- sudo pacman -S gradle
-```
 
-# Como fazer build
+-> Debian based distros
+```- sudo apt-get install gradle```
+-> Arch based distros
+```- sudo pacman -S gradle```
+
+
+# How to build:
 - [ ] -> LINUX
-```
-cd $WORKDIR
+
+```cd $WORKDIR
 git clone https://github.com/l1n3rd4/JSembler.git
 cd JSembler
 gradle clean build
 ```
-- [ ] depois 
-```
-cd build/libs/ 
-java -jar JSembler.jar [arquivo-input][arquivo-output]
-```
+- [ ] After: 
 
-
+```cd build/libs/ 
+java -jar JSembler.jar [input-file][output-file]
+```
 
