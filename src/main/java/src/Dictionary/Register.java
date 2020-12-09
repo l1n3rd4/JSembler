@@ -1,7 +1,6 @@
 package src.main.java.src.Dictionary;
 
 import src.main.java.src.Archives.SaveArchieve;
-
 import java.io.IOException;
 
 public class Register {
@@ -41,7 +40,7 @@ public class Register {
 	private static String hi;
 
 	private SaveArchieve save;
-	
+
 	public Register() throws IOException {
 		save = new SaveArchieve("registers.out");
 		registersInit();

@@ -2,7 +2,6 @@ package src.main.java.src.Compiler;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-
 import src.main.java.src.Archives.ReadArchieve;
 import src.main.java.src.Archives.SaveArchieve;
 import src.main.java.src.Dictionary.InstructionsTypes;
@@ -25,16 +24,12 @@ public class CompilerBinary {
 		String[] buffer;
 		String codeSave = "";
 		String[] regisGeneric = new String[3];
-
-		Register.SetS0("3");
-		Register.SetS1("1");
-		Register.SetS2("2");
 		boolean instr_access_memory = false;
 
 		String[] regisFinal;
 		String InstructionsType = "";
-		int contRegisters = 0;	
-		
+		int contRegisters = 0;
+
 		for (int i = 0; i < read.getArrayLength(); i++) {
 			binario.restartValues();
 			System.out.println("Linha --> " + code[i]);
@@ -67,9 +62,9 @@ public class CompilerBinary {
 							regisGeneric[contRegisters] = buffer[1];
 							int endereco = Integer.parseInt(buffer[0])
 									+ Integer.parseInt(Register.GetRegisters(buffer[1]));
-							
+
 							binario.setLineAddress(endereco);
-							binario.setImediato(buffer[0]);	
+							binario.setImediato(buffer[0]);
 							instr_access_memory = false;
 						} else {
 							regisGeneric[contRegisters] = instrucao[j];
@@ -86,7 +81,6 @@ public class CompilerBinary {
 					} else {
 						binario.setShamt(instrucao[j]);
 					}
-
 				}
 
 				if (j == instrucao.length - 1) {
@@ -99,7 +93,7 @@ public class CompilerBinary {
 
 					binario.setRegisters(regisFinal);
 					codeSave = binario.instruction_fetch();
-	
+
 					contRegisters = 0;
 				}
 				save.write(codeSave);
