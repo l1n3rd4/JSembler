@@ -4,6 +4,7 @@ import src.main.java.src.Archives.SaveArchieve;
 import java.io.IOException;
 
 public class Register {
+	// Classe usada para controle e retorno de registradores
 	private static String zero = "000000";
 	private static String at;
 	private static String v0;
