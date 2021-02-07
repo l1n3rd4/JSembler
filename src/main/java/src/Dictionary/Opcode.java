@@ -1,7 +1,7 @@
 package src.main.java.src.Dictionary;
 
 public class Opcode {
-
+	// Função para retorno de Opcode de instruções 
 	public static String opcode(String code) {
 		switch (code) {
 		case "ori":
