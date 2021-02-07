@@ -1,5 +1,5 @@
 package src.main.java.src.Dictionary;
-
+//função de retorno de tipo de instrução
 public class InstructionsTypes{
   public static String getType(String type){
     switch(type){
