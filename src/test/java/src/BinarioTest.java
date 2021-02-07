@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 
 public class BinarioTest {
 	Binario binario = new Binario();
-
+	
 	@Test
 	public void ImediatoTest() {
 		binario.setImediato("4");
@@ -27,7 +27,8 @@ public class BinarioTest {
 		binario.setAddress("1024");
 		assertEquals("00000000000000010000000000", binario.getAddress());
 	}
-
+	
+	// Função teste para validar comando Save Word
 	@Test
 	public void Sw_Test() throws FileNotFoundException, IOException {
 		MainMemory memory = new MainMemory();
@@ -47,6 +48,7 @@ public class BinarioTest {
 		assertEquals("Leo", MainMemory.getMemorySlot(1024).getContent());
 	}
 
+	// Função teste para validar equações de multiplicação
 	@Test
 	public void Mult_Test() {
 		Register.SetS0("2");
@@ -62,6 +64,7 @@ public class BinarioTest {
 		assertEquals("4", Register.GetRegisters("lo"));
 	}
 
+	// Função teste para validar equações de subtração
 	@Test
 	public void sub_Test() {
 		Register.SetS0("2");
@@ -78,6 +81,7 @@ public class BinarioTest {
 		assertEquals("-1", Register.GetRegisters("s0"));
 	}
 
+	// Função teste para validar equações de adição
 	@Test
 	public void add_Test() {
 		Register.SetS0("2");
@@ -93,7 +97,7 @@ public class BinarioTest {
 		assertEquals("00000010001100101000000000100000", binario.instruction_fetch());
 		assertEquals("4", Register.GetRegisters("s0"));
 	}
-
+	// Função teste para validar equações de divisão
 	@Test
 	public void div_Test() {
 		Register.SetS0("2");
@@ -109,7 +113,8 @@ public class BinarioTest {
 		assertEquals("1", Register.GetRegisters("lo"));
 		assertEquals("0", Register.GetRegisters("hi"));
 	}
-
+	
+	// Função teste para validar comando AND
 	@Test
 	public void and_Test() {
 		Register.SetS0("2");
@@ -125,6 +130,7 @@ public class BinarioTest {
 		assertEquals("00000010001100101000000000100100", binario.instruction_fetch());
 	}
 
+	// Função teste para validar comando OR
 	@Test
 	public void or_Test() {
 		String[] registers = { "s0", "s1", "s2" };
@@ -135,7 +141,8 @@ public class BinarioTest {
 
 		assertEquals("00000010001100101000000000100101", binario.instruction_fetch());
 	}
-
+	
+	// Função teste para validar instruções do tipo Jump
 	@Test
 	public void j_Test() {
 		binario.setOpcode("j");
@@ -145,6 +152,7 @@ public class BinarioTest {
 		assertEquals("00001000000000000000010000000000", binario.instruction_fetch());
 	}
 
+	// Função teste para validar instruções do tipo Jump N Link
 	@Test
 	public void jal_Test() {
 		binario.setOpcode("jal");
@@ -155,6 +163,7 @@ public class BinarioTest {
 		assertEquals("00001100000000000000010000000000", binario.instruction_fetch());
 	}
 
+	// Função teste para validar equações de adição com apenas um registrador (addi)
 	@Test
 	public void addi_Test() {
 		Register.SetS0("2");
@@ -169,7 +178,7 @@ public class BinarioTest {
 		assertEquals("00100010001100000000000000000001", binario.instruction_fetch());
 		assertEquals("3", Register.GetRegisters("s0"));
 	}
-
+	// Função teste para validar instrução andi
 	@Test
 	public void andi_Test() {
 		Register.SetS0("2");
@@ -197,7 +206,7 @@ public class BinarioTest {
 		
 		assertEquals("00110110001100000000000000000001", binario.instruction_fetch());	
 	}
-
+	// Função teste para validar instrução slti
 	@Test
 	public void slti_Test(){
 		Register.SetS0("2");
@@ -211,7 +220,7 @@ public class BinarioTest {
 
 		assertEquals("00101010001100000000000000000001", binario.instruction_fetch());
 	}
-
+	// Função teste para validar instrução beq (if)
 	@Test
 	public void beq_Test(){
 		Register.SetS0("2");
@@ -225,7 +234,7 @@ public class BinarioTest {
 
 		assertEquals("00010010001100000000000000000100", binario.instruction_fetch());
 	}
-
+	// Função teste para validar instrução bne (if not)
 	@Test
 	public void bne_Test(){
 		Register.SetS0("2");
@@ -239,7 +248,7 @@ public class BinarioTest {
 
 		assertEquals("00010110001100000000000000000100", binario.instruction_fetch());
 	}
-
+	// Função teste para validar istrução load word
 	@Test
 	public void lw_Test(){
 		Register.SetS0("2");
@@ -254,7 +263,7 @@ public class BinarioTest {
 		assertEquals("10001110001100000000000000000100", binario.instruction_fetch());
 
 	}
-
+	// Função teste para validar instrução xor
 	@Test
 	public void xor_Test(){
 		Register.SetS0("2");
@@ -269,7 +278,7 @@ public class BinarioTest {
 
 		assertEquals("00000010001100101000000000100110", binario.instruction_fetch());
 	}
-
+	// Função teste para validar instrução nor
 	@Test
 	public void nor_Test(){
 		Register.SetS0("2");
@@ -284,7 +293,7 @@ public class BinarioTest {
 
 		assertEquals("00000010001100101000000000100111", binario.instruction_fetch());
 	}
-
+	// Função teste para validar instrução sll
 	@Test
 	public void sll_Test(){
 		Register.SetS0("2");
@@ -299,7 +308,7 @@ public class BinarioTest {
 
 		assertEquals("00000000000100011000000001000000", binario.instruction_fetch());
 	}
-
+	// Função teste para validar instrução slr
 	@Test 
 	public void srl_Test(){
 		Register.SetS0("2");
