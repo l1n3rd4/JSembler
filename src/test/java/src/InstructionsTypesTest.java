@@ -6,6 +6,7 @@ import static org.junit.Assert.*;
 
 public class InstructionsTypesTest{
 
+	// Teste para validar a conformidade dos tipos de intruções 
 	@Test
 	public void typesTest(){
 		assertEquals("I", InstructionsTypes.getType("ori"));
