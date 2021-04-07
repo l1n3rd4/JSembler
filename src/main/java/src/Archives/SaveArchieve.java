@@ -39,7 +39,7 @@ public class SaveArchieve {
 			if(archive != null){
 				archive.close();
 			}
-		} catch (IOException e) {     // IOException excecao
+		} catch (IOException e) { 
 			throw e;
 		}
 	}
